@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile.jsx";
+import { ThemeToggle } from './theme-toggle.jsx';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -70,13 +71,18 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-slate-600 hover:text-primary"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <i className="fas fa-bars text-xl"></i>
-          </button>
+          {/* Theme Toggle and Mobile Menu */}
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-slate-600 hover:text-primary"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <i className="fas fa-bars text-xl"></i>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

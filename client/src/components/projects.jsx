@@ -51,11 +51,11 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-slate-50/80 backdrop-blur-sm relative">
+    <section id="projects" className="py-20 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Featured Projects</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">Featured Projects</h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             A showcase of my recent work and technical expertise
           </p>
         </div>
@@ -76,8 +76,8 @@ export default function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-white transition-colors">{project.title}</h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">{project.description}</p>
+                <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-white transition-colors">{project.title}</h3>
+                <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (

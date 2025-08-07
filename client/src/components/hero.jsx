@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950">
       {/* Ultra beautiful cosmic background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large floating cosmic blobs */}
@@ -42,10 +42,10 @@ export default function Hero() {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 text-shadow">
-            <span className="text-slate-800 hover:scale-110 transition-transform duration-500">Alex</span>{" "}
+            <span className="text-slate-800 dark:text-slate-100 hover:scale-110 transition-transform duration-500">Alex</span>{" "}
             <span className="text-shimmer">Johnson</span>
           </h1>
-          <p className="text-xl md:text-3xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             Full Stack Developer crafting exceptional digital experiences with 
             <span className="font-semibold text-shimmer"> modern technologies</span>
           </p>
@@ -60,7 +60,7 @@ export default function Hero() {
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="group relative glass-ultra border-2 border-white/30 text-slate-700 px-12 py-6 rounded-3xl hover-cosmic font-bold text-lg overflow-hidden"
+              className="group relative glass-ultra border-2 border-white/30 text-slate-700 dark:text-slate-200 px-12 py-6 rounded-3xl hover-cosmic font-bold text-lg overflow-hidden"
             >
               <span className="relative z-10">Get In Touch</span>
               <div className="absolute inset-0 gradient-cosmic opacity-0 group-hover:opacity-90 transition-opacity duration-500"></div>

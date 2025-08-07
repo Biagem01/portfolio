@@ -81,11 +81,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white/80 backdrop-blur-sm relative">
+    <section id="contact" className="py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Get In Touch</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">Get In Touch</h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Let's discuss your next project or potential collaboration opportunities
           </p>
         </div>
@@ -94,8 +94,8 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-slate-800 mb-6">Let's Connect</h3>
-              <p className="text-slate-600 mb-8">
+              <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">Let's Connect</h3>
+              <p className="text-slate-600 dark:text-slate-300 mb-8">
                 I'm always interested in hearing about new opportunities and exciting projects. 
                 Whether you're a company looking to hire, or you're a fellow developer wanting to collaborate, 
                 feel free to reach out!

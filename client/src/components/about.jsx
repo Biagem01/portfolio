@@ -25,11 +25,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white/80 backdrop-blur-sm relative">
+    <section id="about" className="py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">About Me</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">About Me</h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Passionate about creating digital solutions that make a difference
           </p>
         </div>
@@ -37,12 +37,12 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-slide-in-left">
             <div className="prose prose-lg">
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 I'm a Full Stack Developer with 5+ years of experience building scalable web applications. 
                 I specialize in React, Node.js, and cloud technologies, with a passion for clean code and 
                 user-centered design.
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 When I'm not coding, you'll find me exploring new technologies, contributing to open source 
                 projects, or hiking in the mountains. I believe in continuous learning and staying current 
                 with industry trends.
