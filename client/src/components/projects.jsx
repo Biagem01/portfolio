@@ -60,11 +60,11 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group glass-card rounded-2xl overflow-hidden hover-lift"
+              className="group glass-card-enhanced rounded-2xl overflow-hidden hover-lift stagger-item morphing-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden">
@@ -83,7 +83,7 @@ export default function Projects() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-medium hover:shadow-md transition-all duration-300"
+                      className="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-medium hover:shadow-md transition-all duration-300 magnetic-hover neon-glow"
                     >
                       {tech}
                     </span>

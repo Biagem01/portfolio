@@ -14,10 +14,18 @@ export default function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Enhanced background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-3/4 right-1/4 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full animate-float blur-xl" style={{animationDelay: "1s"}}></div>
-        <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-gradient-to-r from-blue-400/15 to-cyan-400/15 rounded-full animate-float blur-xl" style={{animationDelay: "2s"}}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-gradient-to-r from-indigo-400/15 to-blue-400/15 rounded-full animate-float blur-xl" style={{animationDelay: "3s"}}></div>
+        <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full animate-float blur-xl morphing-card"></div>
+        <div className="absolute top-3/4 right-1/4 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full floating-particles blur-xl" style={{animationDelay: "1s"}}></div>
+        <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-gradient-to-r from-blue-400/15 to-cyan-400/15 rounded-full glow-pulse blur-xl" style={{animationDelay: "2s"}}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-gradient-to-r from-indigo-400/15 to-blue-400/15 rounded-full wave-animation blur-xl" style={{animationDelay: "3s"}}></div>
+        
+        {/* Floating particles */}
+        <div className="absolute top-32 left-1/4 w-4 h-4 bg-blue-500/40 rounded-full floating-particles neon-glow"></div>
+        <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-purple-500/40 rounded-full floating-particles neon-glow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-cyan-500/40 rounded-full floating-particles neon-glow" style={{animationDelay: '4s'}}></div>
+        
+        {/* Aurora background */}
+        <div className="absolute inset-0 aurora-bg opacity-40"></div>
         
         {/* Animated grid background */}
         <div className="absolute inset-0 opacity-[0.02]">
@@ -31,12 +39,12 @@ export default function Hero() {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 text-shadow">
-            <span className="text-slate-800">Alex</span>{" "}
-            <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 animate-gradient">Johnson</span>
+            <span className="text-slate-800 magnetic-hover">Alex</span>{" "}
+            <span className="text-gradient-animated wave-animation">Johnson</span>
           </h1>
           <p className="text-xl md:text-3xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Full Stack Developer crafting exceptional digital experiences with 
-            <span className="font-medium gradient-text bg-gradient-to-r from-purple-600 to-blue-600"> modern technologies</span>
+            <span className="typing-animation">Full Stack Developer crafting exceptional digital experiences with </span>
+            <span className="font-medium text-gradient-animated"> modern technologies</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">

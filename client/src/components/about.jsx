@@ -49,11 +49,11 @@ export default function About() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 stagger-container">
               {skills.map((skill, index) => (
                 <span
                   key={skill}
-                  className="skill-tag text-slate-700 px-4 py-2 rounded-full text-sm font-medium hover-lift"
+                  className="skill-tag text-slate-700 px-4 py-2 rounded-full text-sm font-medium hover-lift stagger-item magnetic-hover"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {skill}
@@ -67,15 +67,15 @@ export default function About() {
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600"
                 alt="Professional headshot"
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105"
+                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105 magnetic-hover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
             {/* Enhanced decorative elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full -z-10 animate-pulse-slow blur-sm"></div>
-            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full -z-10 animate-float blur-sm"></div>
-            <div className="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-r from-cyan-400/40 to-blue-400/40 rounded-full -z-10 animate-bounce-slow"></div>
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full -z-10 floating-particles blur-sm"></div>
+            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full -z-10 morphing-card blur-sm"></div>
+            <div className="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-r from-cyan-400/40 to-blue-400/40 rounded-full -z-10 glow-pulse"></div>
           </div>
         </div>
 

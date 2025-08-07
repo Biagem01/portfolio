@@ -220,7 +220,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:transform hover:scale-105 font-semibold text-lg"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:transform hover:scale-105 font-semibold text-lg magnetic-hover glow-pulse"
               >
                 {isSubmitting ? (
                   <>
