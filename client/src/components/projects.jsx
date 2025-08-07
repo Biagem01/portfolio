@@ -64,7 +64,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group glass-card-enhanced rounded-2xl overflow-hidden hover-lift stagger-item morphing-card"
+              className="group glass-ultra rounded-3xl overflow-hidden hover-cosmic stagger-item liquid-blob shadow-cosmic"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden">
@@ -76,14 +76,14 @@ export default function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">{project.title}</h3>
+                <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-white transition-colors">{project.title}</h3>
                 <p className="text-slate-600 mb-4 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-medium hover:shadow-md hover:bg-gradient-to-r hover:from-blue-100 hover:to-purple-100 hover:scale-105 transition-all duration-300"
+                      className="gradient-cosmic text-white px-4 py-2 rounded-full text-xs font-semibold shadow-cosmic hover:shadow-ethereal hover:scale-110 transition-all duration-300 sparkle"
                     >
                       {tech}
                     </span>

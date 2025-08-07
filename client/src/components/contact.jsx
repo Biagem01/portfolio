@@ -167,7 +167,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="glass-card rounded-2xl p-8 hover-lift">
+          <div className="glass-ultra rounded-3xl p-10 hover-cosmic shadow-cosmic">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name">Full Name</Label>
@@ -220,7 +220,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic"
               >
                 {isSubmitting ? (
                   <>

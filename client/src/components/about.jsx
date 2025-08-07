@@ -53,7 +53,7 @@ export default function About() {
               {skills.map((skill, index) => (
                 <span
                   key={skill}
-                  className="skill-tag text-slate-700 px-4 py-2 rounded-full text-sm font-medium hover:transform hover:scale-105 hover:shadow-lg transition-all duration-300 stagger-item"
+                  className="glass-ultra text-slate-700 px-5 py-3 rounded-full text-sm font-semibold shadow-cosmic hover:shadow-ethereal hover:scale-110 transition-all duration-500 stagger-item breathe"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {skill}

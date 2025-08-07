@@ -51,7 +51,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full glass-effect shadow-lg z-50 transition-all duration-300 border-b border-white/20">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-gradient-animated magnetic-hover">AJ</div>
+          <div className="text-3xl font-bold text-shimmer hover:scale-110 transition-transform duration-500">AJ</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">

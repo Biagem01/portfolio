@@ -12,26 +12,29 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-      {/* Enhanced background decorative elements */}
+      {/* Ultra beautiful cosmic background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full animate-float blur-xl morphing-card"></div>
-        <div className="absolute top-3/4 right-1/4 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full floating-particles blur-xl" style={{animationDelay: "1s"}}></div>
-        <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-gradient-to-r from-blue-400/15 to-cyan-400/15 rounded-full glow-pulse blur-xl" style={{animationDelay: "2s"}}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-gradient-to-r from-indigo-400/15 to-blue-400/15 rounded-full wave-animation blur-xl" style={{animationDelay: "3s"}}></div>
+        {/* Large floating cosmic blobs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 gradient-cosmic opacity-20 liquid-blob blur-3xl"></div>
+        <div className="absolute top-3/4 right-1/4 w-80 h-80 gradient-sunset opacity-25 float-beautiful blur-3xl" style={{animationDelay: "1s"}}></div>
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 gradient-ocean opacity-30 breathe blur-3xl" style={{animationDelay: "2s"}}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 gradient-ethereal opacity-20 sparkle blur-3xl" style={{animationDelay: "3s"}}></div>
         
-        {/* Floating particles */}
-        <div className="absolute top-32 left-1/4 w-4 h-4 bg-blue-500/40 rounded-full floating-particles neon-glow"></div>
-        <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-purple-500/40 rounded-full floating-particles neon-glow" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-cyan-500/40 rounded-full floating-particles neon-glow" style={{animationDelay: '4s'}}></div>
+        {/* Beautiful sparkle particles */}
+        <div className="absolute top-32 left-1/4 w-6 h-6 gradient-cosmic rounded-full sparkle shadow-cosmic"></div>
+        <div className="absolute bottom-32 right-1/4 w-8 h-8 gradient-sunset rounded-full float-beautiful shadow-ethereal" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-4 h-4 gradient-ocean rounded-full breathe" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-2/3 left-1/5 w-5 h-5 gradient-royal rounded-full sparkle" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/3 right-1/5 w-7 h-7 gradient-ethereal rounded-full float-beautiful" style={{animationDelay: '3s'}}></div>
         
-        {/* Aurora background */}
-        <div className="absolute inset-0 aurora-bg opacity-40"></div>
+        {/* Enhanced aurora background */}
+        <div className="absolute inset-0 aurora-bg opacity-60"></div>
         
-        {/* Animated grid background */}
-        <div className="absolute inset-0 opacity-[0.02]">
+        {/* Subtle cosmic grid */}
+        <div className="absolute inset-0 opacity-[0.03]">
           <div className="w-full h-full" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(102, 126, 234, 0.3) 1px, transparent 0)`,
+            backgroundSize: '60px 60px'
           }}></div>
         </div>
       </div>
@@ -39,27 +42,29 @@ export default function Hero() {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 text-shadow">
-            <span className="text-slate-800 magnetic-hover">Alex</span>{" "}
-            <span className="text-gradient-animated wave-animation">Johnson</span>
+            <span className="text-slate-800 hover:scale-110 transition-transform duration-500">Alex</span>{" "}
+            <span className="text-shimmer">Johnson</span>
           </h1>
           <p className="text-xl md:text-3xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             Full Stack Developer crafting exceptional digital experiences with 
-            <span className="font-medium text-gradient-animated"> modern technologies</span>
+            <span className="font-semibold text-shimmer"> modern technologies</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             <button
               onClick={() => scrollToSection("projects")}
-              className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 font-semibold text-lg overflow-hidden"
+              className="group relative gradient-cosmic text-white px-12 py-6 rounded-3xl hover-cosmic font-bold text-lg overflow-hidden shadow-cosmic"
             >
               <span className="relative z-10">View My Work</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 gradient-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="group relative border-2 border-blue-600 text-blue-600 px-10 py-5 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-500 hover:scale-105 font-semibold text-lg overflow-hidden glass-effect"
+              className="group relative glass-ultra border-2 border-white/30 text-slate-700 px-12 py-6 rounded-3xl hover-cosmic font-bold text-lg overflow-hidden"
             >
               <span className="relative z-10">Get In Touch</span>
+              <div className="absolute inset-0 gradient-cosmic opacity-0 group-hover:opacity-90 transition-opacity duration-500"></div>
+              <span className="absolute inset-0 group-hover:text-white transition-colors duration-500 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100">Get In Touch</span>
             </button>
           </div>
 
