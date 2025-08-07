@@ -43,7 +43,7 @@ export default function Hero() {
             <span className="text-gradient-animated wave-animation">Johnson</span>
           </h1>
           <p className="text-xl md:text-3xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            <span className="typing-animation">Full Stack Developer crafting exceptional digital experiences with </span>
+            Full Stack Developer crafting exceptional digital experiences with 
             <span className="font-medium text-gradient-animated"> modern technologies</span>
           </p>
           
@@ -63,24 +63,17 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* New: Social links in hero */}
+          {/* Social links in hero */}
           <div className="flex justify-center space-x-6 mb-12">
-            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg">
+            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:bg-blue-600 hover:text-white hover:scale-110 hover:shadow-xl hover:border-blue-600">
               <i className="fab fa-github text-xl"></i>
             </a>
-            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg">
+            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:bg-blue-600 hover:text-white hover:scale-110 hover:shadow-xl hover:border-blue-600">
               <i className="fab fa-linkedin-in text-xl"></i>
             </a>
-            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg">
+            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:bg-blue-600 hover:text-white hover:scale-110 hover:shadow-xl hover:border-blue-600">
               <i className="fas fa-envelope text-xl"></i>
             </a>
-          </div>
-        </div>
-
-        {/* Enhanced scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-          <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </div>
