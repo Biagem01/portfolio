@@ -83,7 +83,7 @@ export default function Projects() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-medium hover:shadow-md transition-all duration-300 magnetic-hover neon-glow"
+                      className="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-medium hover:shadow-md hover:bg-gradient-to-r hover:from-blue-100 hover:to-purple-100 hover:scale-105 transition-all duration-300"
                     >
                       {tech}
                     </span>

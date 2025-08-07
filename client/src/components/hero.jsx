@@ -50,14 +50,14 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             <button
               onClick={() => scrollToSection("projects")}
-              className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:transform hover:scale-105 font-semibold text-lg overflow-hidden"
+              className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 font-semibold text-lg overflow-hidden"
             >
               <span className="relative z-10">View My Work</span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="group relative border-2 border-blue-600 text-blue-600 px-10 py-5 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-500 hover:transform hover:scale-105 font-semibold text-lg overflow-hidden glass-effect"
+              className="group relative border-2 border-blue-600 text-blue-600 px-10 py-5 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-500 hover:scale-105 font-semibold text-lg overflow-hidden glass-effect"
             >
               <span className="relative z-10">Get In Touch</span>
             </button>
@@ -65,13 +65,13 @@ export default function Hero() {
 
           {/* New: Social links in hero */}
           <div className="flex justify-center space-x-6 mb-12">
-            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:transform hover:scale-110 shadow-lg">
+            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg">
               <i className="fab fa-github text-xl"></i>
             </a>
-            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:transform hover:scale-110 shadow-lg">
+            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg">
               <i className="fab fa-linkedin-in text-xl"></i>
             </a>
-            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:transform hover:scale-110 shadow-lg">
+            <a href="#" className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg">
               <i className="fas fa-envelope text-xl"></i>
             </a>
           </div>

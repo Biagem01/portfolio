@@ -53,7 +53,7 @@ export default function About() {
               {skills.map((skill, index) => (
                 <span
                   key={skill}
-                  className="skill-tag text-slate-700 px-4 py-2 rounded-full text-sm font-medium hover-lift stagger-item magnetic-hover"
+                  className="skill-tag text-slate-700 px-4 py-2 rounded-full text-sm font-medium hover:transform hover:scale-105 hover:shadow-lg transition-all duration-300 stagger-item"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {skill}
@@ -67,7 +67,7 @@ export default function About() {
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600"
                 alt="Professional headshot"
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105 magnetic-hover"
+                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>

@@ -330,11 +330,11 @@
 }
 
 .magnetic-hover {
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s ease;
 }
 
 .magnetic-hover:hover {
-  animation: magnetic-hover 0.6s ease-in-out;
+  transform: scale(1.05);
 }
 
 .parallax-slow {
@@ -382,10 +382,9 @@
 
 .neon-glow {
   box-shadow: 
-    0 0 5px #3b82f6,
-    0 0 10px #3b82f6,
-    0 0 15px #3b82f6,
-    0 0 20px #3b82f6;
+    0 0 5px rgba(59, 130, 246, 0.5),
+    0 0 10px rgba(59, 130, 246, 0.3),
+    0 0 15px rgba(59, 130, 246, 0.2);
 }
 
 .aurora-bg {

@@ -59,10 +59,10 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`transition-all duration-300 px-4 py-2 rounded-lg font-medium magnetic-hover ${
+                className={`transition-all duration-300 px-4 py-2 rounded-lg font-medium hover:scale-105 ${
                   activeSection === item.id
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg glow-pulse"
-                    : "text-slate-700 hover:text-blue-600 hover:bg-white/50"
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                    : "text-slate-700 hover:text-blue-600 hover:bg-white/50 hover:shadow-md"
                 }`}
               >
                 {item.label}
