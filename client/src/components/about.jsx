@@ -25,8 +25,8 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-20 bg-white/80 backdrop-blur-sm relative">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">About Me</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
@@ -35,7 +35,7 @@ export default function About() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div className="space-y-6 animate-slide-in-left">
             <div className="prose prose-lg">
               <p className="text-slate-600 leading-relaxed">
                 I'm a Full Stack Developer with 5+ years of experience building scalable web applications. 
@@ -50,10 +50,11 @@ export default function About() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {skills.map((skill) => (
+              {skills.map((skill, index) => (
                 <span
                   key={skill}
-                  className="bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-medium"
+                  className="skill-tag text-slate-700 px-4 py-2 rounded-full text-sm font-medium hover-lift"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {skill}
                 </span>
@@ -61,16 +62,20 @@ export default function About() {
             </div>
           </div>
 
-          <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600"
-              alt="Professional headshot"
-              className="rounded-2xl shadow-2xl w-full max-w-md mx-auto"
-            />
+          <div className="relative animate-slide-in-right">
+            <div className="relative group">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600"
+                alt="Professional headshot"
+                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
             
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full -z-10"></div>
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/10 rounded-full -z-10"></div>
+            {/* Enhanced decorative elements */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full -z-10 animate-pulse-slow blur-sm"></div>
+            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full -z-10 animate-float blur-sm"></div>
+            <div className="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-r from-cyan-400/40 to-blue-400/40 rounded-full -z-10 animate-bounce-slow"></div>
           </div>
         </div>
 

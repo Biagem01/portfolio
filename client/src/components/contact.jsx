@@ -81,8 +81,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 bg-white/80 backdrop-blur-sm relative">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Get In Touch</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
@@ -167,7 +167,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-slate-50 rounded-xl p-8">
+          <div className="glass-card rounded-2xl p-8 hover-lift">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name">Full Name</Label>
@@ -220,7 +220,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-primary/90 transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl font-medium"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:transform hover:scale-105 font-semibold text-lg"
               >
                 {isSubmitting ? (
                   <>

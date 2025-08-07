@@ -51,8 +51,8 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-20 bg-slate-50/80 backdrop-blur-sm relative">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Featured Projects</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
@@ -64,40 +64,46 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:-translate-y-2 overflow-hidden"
+              className="group glass-card rounded-2xl overflow-hidden hover-lift"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">{project.title}</h3>
-                <p className="text-slate-600 mb-4">{project.description}</p>
+                <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">{project.title}</h3>
+                <p className="text-slate-600 mb-4 leading-relaxed">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-medium"
+                      className="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-medium hover:shadow-md transition-all duration-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-4">
                   <a
                     href={project.demoLink}
-                    className="text-primary hover:text-primary/80 transition-colors"
+                    className="flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium group"
                   >
-                    <i className="fas fa-external-link-alt mr-1"></i> Live Demo
+                    <i className="fas fa-external-link-alt mr-2 group-hover:scale-110 transition-transform"></i> 
+                    Live Demo
                   </a>
                   <a
                     href={project.githubLink}
-                    className="text-slate-600 hover:text-slate-800 transition-colors"
+                    className="flex items-center text-slate-600 hover:text-slate-800 transition-colors font-medium group"
                   >
-                    <i className="fab fa-github mr-1"></i> GitHub
+                    <i className="fab fa-github mr-2 group-hover:scale-110 transition-transform"></i> 
+                    GitHub
                   </a>
                 </div>
               </div>
