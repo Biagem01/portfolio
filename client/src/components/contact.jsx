@@ -80,9 +80,9 @@ export default function Contact() {
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">Get In Touch</h2>
-          <p className="p-font text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Let's discuss your next project or potential collaboration opportunities
+          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4 drop-shadow-lg text-shimmer animate-bounce-slow">🚀 Get In Touch</h2>
+          <p className="p-font text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in drop-shadow-md">
+            Let's discuss your next project or potential collaboration opportunities ✨
           </p>
         </div>
 

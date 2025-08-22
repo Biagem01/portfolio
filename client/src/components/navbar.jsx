@@ -43,7 +43,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="nav-font fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/20 backdrop-blur-lg bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 animate-gradient-bg shadow-lg">
+    <nav className="nav-font fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/30 backdrop-blur-lg glass-ultra shadow-cosmic animate-gradient-bg glow-pulse">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           

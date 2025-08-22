@@ -88,11 +88,11 @@ export default function About() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Titolo */}
         <div className="text-center mb-16">
-          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            About Me
+          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4 drop-shadow-lg text-shimmer animate-bounce-slow">
+            ✨ About Me
           </h2>
-          <p className="title text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Appassionato di tecnologia e sviluppo web, sempre alla ricerca di nuove sfide per crescere come sviluppatore.
+          <p className="title text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in drop-shadow-md">
+            Appassionato di tecnologia e sviluppo web, sempre alla ricerca di nuove sfide per crescere come sviluppatore. 🌟
           </p>
         </div>
 
@@ -128,8 +128,8 @@ export default function About() {
 
         {/* Skills */}
         <div className="mt-20">
-          <h3 className="title text-3xl font-bold text-slate-800 dark:text-slate-100 mb-12 text-center">
-            Skills
+          <h3 className="title text-3xl font-bold text-slate-800 dark:text-slate-100 mb-12 text-center drop-shadow-lg text-shimmer animate-pulse">
+            🛠️ Skills & Technologies
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {Object.entries(skills).map(([category, items], idx) => (
