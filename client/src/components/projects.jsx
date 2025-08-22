@@ -201,9 +201,11 @@ export default function Projects() {
         <div className="text-center mt-12">
           <a
             href="#"
-            className="title inline-flex items-center text-primary hover:text-primary/80 transition-colors text-lg font-medium"
+            className="group title inline-flex items-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-spectacular hover:shadow-2xl transform hover:scale-110 transition-all duration-500 border-2 border-white/30 hover:border-purple-300 glow-pulse"
           >
+            <span className="mr-3 group-hover:rotate-12 transition-transform duration-300">🚀</span>
             View All Projects
+            <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
           </a>
         </div>
       </div>
