@@ -43,7 +43,7 @@ function ProjectCard({ project, delay }) {
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="group glass-ultra rounded-3xl overflow-hidden shadow-spectacular hover:shadow-xl enhanced-card-hover animate-border"
+        className="group bg-gradient-to-br from-white/90 to-slate-100/90 dark:from-slate-800/90 dark:to-slate-900/90 backdrop-blur-lg border border-slate-200/50 dark:border-white/20 rounded-3xl overflow-hidden shadow-spectacular hover:shadow-xl enhanced-card-hover animate-border"
       >
         <div className="relative overflow-hidden">
           <img
@@ -55,10 +55,10 @@ function ProjectCard({ project, delay }) {
         </div>
 
         <div className="p-6">
-          <h3 className="title text-xl font-semibold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-white transition-colors">
+          <h3 className="title text-xl font-semibold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-purple-600 dark:group-hover:text-white transition-colors drop-shadow-lg">
             {project.title}
           </h3>
-          <p className="project-description text-slate-600 dark:text-slate-300 mb-4 leading-relaxed group-hover:text-white transition-colors">
+          <p className="project-description text-slate-600 dark:text-slate-300 mb-4 leading-relaxed group-hover:text-slate-700 dark:group-hover:text-white transition-colors">
             {project.description}
           </p>
 
@@ -66,7 +66,7 @@ function ProjectCard({ project, delay }) {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-xs font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 text-white px-4 py-2 rounded-full text-xs font-semibold shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 glow-pulse"
               >
                 {tech}
               </span>
@@ -76,15 +76,15 @@ function ProjectCard({ project, delay }) {
           <div className="title flex gap-4">
             <a
               href={project.demoLink}
-              className="flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium group"
+              className="flex items-center text-indigo-600 hover:text-indigo-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors font-medium group text-glow hover:scale-105 transform duration-300"
             >
-              Live Demo
+              🌐 Live Demo
             </a>
             <a
               href={project.githubLink}
-              className="flex items-center text-slate-600 hover:text-slate-800 dark:hover:text-white transition-colors font-medium group"
+              className="flex items-center text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors font-medium group hover:scale-105 transform duration-300"
             >
-              GitHub
+              📚 GitHub
             </a>
           </div>
         </div>

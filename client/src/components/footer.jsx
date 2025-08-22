@@ -83,20 +83,20 @@ export default function Footer() {
             <h4 className="title text-xl font-bold mb-6 text-shimmer drop-shadow-lg">📞 Get In Touch</h4>
             <div className="space-y-4">
               <div className="glass-ultra p-4 rounded-xl border border-white/20 hover:scale-105 transition-all duration-300 shadow-cosmic">
-                <p className="p-font text-slate-200 flex items-center justify-center md:justify-start text-lg drop-shadow-md">
-                  <i className="fas fa-envelope mr-3 text-blue-400"></i>
-                  biagio.99cubisino@gmail.com
-                </p>
+                <div className="p-font text-slate-200 flex items-center justify-center md:justify-start drop-shadow-md">
+                  <i className="fas fa-envelope mr-3 text-blue-400 flex-shrink-0"></i>
+                  <span className="text-sm md:text-base break-all">biagio.99cubisino@gmail.com</span>
+                </div>
               </div>
               <div className="glass-ultra p-4 rounded-xl border border-white/20 hover:scale-105 transition-all duration-300 shadow-cosmic">
-                <p className="p-font text-slate-200 flex items-center justify-center md:justify-start text-lg drop-shadow-md">
-                  <i className="fas fa-phone mr-3 text-green-400"></i>
+                <p className="p-font text-slate-200 flex items-center justify-center md:justify-start text-sm md:text-base drop-shadow-md">
+                  <i className="fas fa-phone mr-3 text-green-400 flex-shrink-0"></i>
                   +39 342 5180540
                 </p>
               </div>
               <div className="glass-ultra p-4 rounded-xl border border-white/20 hover:scale-105 transition-all duration-300 shadow-cosmic">
-                <p className="p-font text-slate-200 flex items-center justify-center md:justify-start text-lg drop-shadow-md">
-                  <i className="fas fa-map-marker-alt mr-3 text-red-400"></i>
+                <p className="p-font text-slate-200 flex items-center justify-center md:justify-start text-sm md:text-base drop-shadow-md">
+                  <i className="fas fa-map-marker-alt mr-3 text-red-400 flex-shrink-0"></i>
                   Comiso, RG 🇮🇹
                 </p>
               </div>
