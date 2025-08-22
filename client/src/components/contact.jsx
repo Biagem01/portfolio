@@ -41,7 +41,6 @@ export default function Contact() {
       [name]: value
     }));
     
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -53,13 +52,10 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
     
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
@@ -84,8 +80,8 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">Get In Touch</h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">Get In Touch</h2>
+          <p className="p-font text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Let's discuss your next project or potential collaboration opportunities
           </p>
         </div>
@@ -94,74 +90,50 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">Let's Connect</h3>
-              <p className="text-slate-600 dark:text-slate-300 mb-8">
+              <h3 className="title text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">Let's Connect</h3>
+              <p className="p-font text-slate-600 dark:text-slate-300 mb-8">
                 I'm always interested in hearing about new opportunities and exciting projects. 
                 Whether you're a company looking to hire, or you're a fellow developer wanting to collaborate, 
                 feel free to reach out!
               </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-envelope text-primary"></i>
+            <div className="project-description space-y-4">
+              {[
+                { icon: "fas fa-envelope", label: "Email", value: "biagio.99cubisino@gmail.com" },
+                { icon: "fas fa-phone", label: "Phone", value: "+39 3425180540" },
+                { icon: "fas fa-map-marker-alt", label: "Location", value: "Comiso, RG" },
+              ].map(({ icon, label, value }) => (
+                <div key={label} className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center">
+                    <i className={`${icon} text-primary dark:text-primary-light`}></i>
+                  </div>
+                  <div>
+                    <p className=" font-medium text-slate-800 dark:text-slate-100">{label}</p>
+                    <p className="text-slate-600 dark:text-slate-300">{value}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-medium text-slate-800">Email</p>
-                  <p className="text-slate-600">alex.johnson@email.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-phone text-primary"></i>
-                </div>
-                <div>
-                  <p className="font-medium text-slate-800">Phone</p>
-                  <p className="text-slate-600">+1 (555) 123-4567</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-map-marker-alt text-primary"></i>
-                </div>
-                <div>
-                  <p className="font-medium text-slate-800">Location</p>
-                  <p className="text-slate-600">San Francisco, CA</p>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Social Links */}
             <div>
-              <p className="font-medium text-slate-800 mb-4">Follow me on social media</p>
+              <p className=" title text-slate-800 dark:text-slate-100 mb-4">Follow me on social media</p>
               <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-slate-100 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                >
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-slate-100 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                >
-                  <i className="fab fa-github"></i>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-slate-100 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                >
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-slate-100 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                >
-                  <i className="fas fa-globe"></i>
-                </a>
+                {[
+                  { href: "#", icon: "fab fa-linkedin-in" },
+                  { href: "#", icon: "fab fa-github" },
+                  { href: "#", icon: "fab fa-twitter" },
+                  { href: "#", icon: "fas fa-globe" },
+                ].map(({ href, icon }, i) => (
+                  <a
+                    key={i}
+                    href={href}
+                    className="w-10 h-10 bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
+                  >
+                    <i className={`${icon} text-slate-800 dark:text-slate-200`}></i>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -169,7 +141,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="glass-ultra rounded-3xl p-10 hover-cosmic shadow-cosmic">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              <div className="title">
                 <Label htmlFor="name">Full Name</Label>
                 <Input
                   id="name"
@@ -181,11 +153,11 @@ export default function Contact() {
                   className={errors.name ? "border-red-500" : ""}
                 />
                 {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  <p className="p-font text-red-500 text-sm mt-1">{errors.name}</p>
                 )}
               </div>
 
-              <div>
+              <div className="title">
                 <Label htmlFor="email">Email Address</Label>
                 <Input
                   id="email"
@@ -197,11 +169,11 @@ export default function Contact() {
                   className={errors.email ? "border-red-500" : ""}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  <p className="p-font text-red-500 text-sm mt-1">{errors.email}</p>
                 )}
               </div>
 
-              <div>
+              <div className="title">
                 <Label htmlFor="message">Message</Label>
                 <Textarea
                   id="message"
@@ -213,14 +185,14 @@ export default function Contact() {
                   className={errors.message ? "border-red-500" : ""}
                 />
                 {errors.message && (
-                  <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                  <p className="p-font text-red-500 text-sm mt-1">{errors.message}</p>
                 )}
               </div>
 
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic"
+                className=" title w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic"
               >
                 {isSubmitting ? (
                   <>

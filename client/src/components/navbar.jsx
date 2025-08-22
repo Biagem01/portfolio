@@ -9,10 +9,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const sections = ["home", "about", "projects", "contact"];
-    
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
-      
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -24,7 +22,6 @@ export default function Navbar() {
         }
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -33,10 +30,7 @@ export default function Navbar() {
     const element = document.getElementById(sectionId);
     if (element) {
       const offsetTop = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
@@ -49,54 +43,57 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full glass-effect shadow-lg z-50 transition-all duration-300 border-b border-white/20">
+    <nav className="nav-font fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/20 backdrop-blur-lg bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 animate-gradient-bg shadow-lg">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-3xl font-bold text-shimmer hover:scale-110 transition-transform duration-500">AJ</div>
+          
+          {/* Logo */}
+          <div className="text-3xl font-bold text-white text-shimmer hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer" onClick={() => scrollToSection("home")}>
+            BC
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`transition-all duration-300 px-4 py-2 rounded-lg font-medium hover:scale-105 ${
-                  activeSection === item.id
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                    : "text-slate-700 hover:text-blue-600 hover:bg-white/50 hover:shadow-md"
-                }`}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-500 ease-in-out
+                  ${activeSection === item.id
+                    ? "bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 text-white shadow-lg scale-105"
+                    : "text-white hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-400 hover:text-white hover:scale-105 hover:shadow-md"
+                  }`}
               >
                 {item.label}
               </button>
             ))}
           </div>
 
-          {/* Theme Toggle and Mobile Menu */}
+          {/* Theme Toggle & Mobile Menu */}
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            
-            {/* Mobile Menu Button */}
+
             <button
-              className="md:hidden text-slate-600 hover:text-primary"
+              className="md:hidden text-white hover:text-primary transition-colors duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <i className="fas fa-bars text-xl"></i>
+              <i className={`fas fa-bars text-2xl ${isMenuOpen ? "rotate-90 transition-transform duration-500" : ""}`}></i>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && isMobile && (
-          <div className="md:hidden mt-4 pb-4">
+          <div className="md:hidden mt-4 pb-4 animate-slide-down">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left transition-colors duration-200 ${
+                  className={`text-left px-4 py-2 rounded-lg transition-all duration-300 ${
                     activeSection === item.id
-                      ? "text-primary font-semibold"
-                      : "text-slate-600 hover:text-primary"
+                      ? "bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 text-white shadow-lg"
+                      : "text-white hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-400 hover:text-white hover:shadow-md"
                   }`}
                 >
                   {item.label}

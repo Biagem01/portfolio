@@ -1,102 +1,139 @@
-export default function About() {
-  const skills = [
-    "React", "Node.js", "JavaScript", "Python", "AWS", "MongoDB", "PostgreSQL", "Docker"
-  ];
+import { useRef, useEffect, useState } from "react";
+import Avatar from "../../src/image/Avatar.png";
 
-  const experiences = [
-    {
-      title: "Senior Full Stack Developer",
-      company: "TechCorp Solutions",
-      period: "2022 - Present",
-      description: "Led development of scalable web applications serving 100k+ users. Implemented microservices architecture and improved system performance by 40%.",
-    },
-    {
-      title: "Full Stack Developer", 
-      company: "StartupXYZ",
-      period: "2020 - 2022",
-      description: "Built the company's main product from MVP to production. Worked with React, Node.js, and AWS to create a real-time collaboration platform.",
-    },
-    {
-      title: "Frontend Developer",
-      company: "Digital Agency Pro",
-      period: "2019 - 2020",
-      description: "Developed responsive websites and web applications for various clients. Specialized in React and modern JavaScript frameworks.",
-    },
-  ];
+// Componente per le skill
+function SkillCard({ category, items, delay }) {
+  const wrapperRef = useRef(null);
+  const innerRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (wrapperRef.current) observer.observe(wrapperRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = (e) => {
+    const rect = innerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateX = ((y / rect.height) - 0.5) * 20;
+    const rotateY = ((x / rect.width) - 0.5) * 20;
+    innerRef.current.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+  };
+
+  const resetTilt = () => {
+    innerRef.current.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+  };
 
   return (
-    <section id="about" className="py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
+    <div
+      ref={wrapperRef}
+      className={`${visible ? "animate-bounce-in opacity-100" : "opacity-0"}`}
+      style={{ animationDelay: `${delay}s` }}
+    >
+      <div
+        ref={innerRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={resetTilt}
+        className="skill-card bg-slate-50 dark:bg-slate-800 p-6 rounded-xl shadow-md transition-transform duration-300"
+      >
+        <h4 className="title text-xl font-semibold mb-4">{category}</h4>
+        <div className="flex flex-wrap gap-3">
+          {items.map((skill, i) => (
+            <span
+              key={skill}
+              className="p-font skill-badge"
+              style={{
+                animationDelay: `${i * 0.1}s`,
+                opacity: visible ? 1 : 0,
+              }}
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Componente About
+export default function About() {
+  const skills = {
+    Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React"],
+    Backend: ["Node.js", "PHP"],
+    Database: ["MySQL"],
+    "Programming Languages": ["C++", "C#"]
+  };
+
+  // Stato e ref per animazione avatar
+  const [avatarVisible, setAvatarVisible] = useState(false);
+  const avatarRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setAvatarVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (avatarRef.current) observer.observe(avatarRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="about" className="p-font py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
       <div className="container mx-auto px-6 relative z-10">
+        {/* Titolo */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">About Me</h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Passionate about creating digital solutions that make a difference
+          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+            About Me
+          </h2>
+          <p className="title text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            Appassionato di tecnologia e sviluppo web, sempre alla ricerca di nuove sfide per crescere come sviluppatore.
           </p>
         </div>
 
+        {/* Bio + Avatar */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-slide-in-left">
-            <div className="prose prose-lg">
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                I'm a Full Stack Developer with 5+ years of experience building scalable web applications. 
-                I specialize in React, Node.js, and cloud technologies, with a passion for clean code and 
-                user-centered design.
+            <div className="prose prose-lg text-slate-600 dark:text-slate-300">
+              <p>
+               I'm a computer science student and growing web developer, with a strong passion for programming and creating modern, intuitive applications.
               </p>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, contributing to open source 
-                projects, or hiking in the mountains. I believe in continuous learning and staying current 
-                with industry trends.
+              <p>
+               I focus mainly on technologies like <strong>React</strong> <strong>Node.js</strong>  and databases, always striving to write clean and maintainable code.
               </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3 stagger-container">
-              {skills.map((skill, index) => (
-                <span
-                  key={skill}
-                  className="glass-ultra text-slate-700 px-5 py-3 rounded-full text-sm font-semibold shadow-cosmic hover:shadow-ethereal hover:scale-110 transition-all duration-500 stagger-item breathe"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {skill}
-                </span>
-              ))}
+              <p>
+               Outside of studying and coding, I love exploring new technologies, experimenting with side projects, and keeping up to date with industry trends.
+              </p>
             </div>
           </div>
 
-          <div className="relative animate-slide-in-right">
-            <div className="relative group">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600"
-                alt="Professional headshot"
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-            
-            {/* Enhanced decorative elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full -z-10 floating-particles blur-sm"></div>
-            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full -z-10 morphing-card blur-sm"></div>
-            <div className="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-r from-cyan-400/40 to-blue-400/40 rounded-full -z-10 glow-pulse"></div>
+          <div
+            ref={avatarRef}
+            className={`relative group transition-transform duration-700
+                        ${avatarVisible ? "animate-bounce-in opacity-100" : "opacity-0"}`}
+          >
+            <img
+              src={Avatar}
+              alt="Profile"
+              className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </div>
 
-        {/* Experience Timeline */}
+        {/* Skills */}
         <div className="mt-20">
-          <h3 className="text-3xl font-bold text-slate-800 mb-12 text-center">Experience</h3>
-          <div className="space-y-8">
-            {experiences.map((experience, index) => (
-              <div
-                key={index}
-                className="bg-slate-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h4 className="text-xl font-semibold text-slate-800">{experience.title}</h4>
-                    <p className="text-primary font-medium">{experience.company}</p>
-                  </div>
-                  <span className="text-slate-500 text-sm">{experience.period}</span>
-                </div>
-                <p className="text-slate-600">{experience.description}</p>
-              </div>
+          <h3 className="title text-3xl font-bold text-slate-800 dark:text-slate-100 mb-12 text-center">
+            Skills
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {Object.entries(skills).map(([category, items], idx) => (
+              <SkillCard key={category} category={category} items={items} delay={idx * 0.2} />
             ))}
           </div>
         </div>
