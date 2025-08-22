@@ -77,7 +77,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
+    <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">Get In Touch</h2>
@@ -105,7 +105,7 @@ export default function Contact() {
                 { icon: "fas fa-map-marker-alt", label: "Location", value: "Comiso, RG" },
               ].map(({ icon, label, value }) => (
                 <div key={label} className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 glass-ultra rounded-lg flex items-center justify-center">
                     <i className={`${icon} text-primary dark:text-primary-light`}></i>
                   </div>
                   <div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   <a
                     key={i}
                     href={href}
-                    className="w-10 h-10 bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
+                    className="w-10 h-10 glass-ultra hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
                   >
                     <i className={`${icon} text-slate-800 dark:text-slate-200`}></i>
                   </a>

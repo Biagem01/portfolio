@@ -43,7 +43,7 @@ function ProjectCard({ project, delay }) {
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300"
+        className="group glass-ultra rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300"
       >
         <div className="relative overflow-hidden">
           <img
@@ -161,7 +161,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm relative"
+      className="py-20 relative"
     >
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">

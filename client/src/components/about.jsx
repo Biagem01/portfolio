@@ -39,7 +39,7 @@ function SkillCard({ category, items, delay }) {
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="skill-card bg-slate-50 dark:bg-slate-800 p-6 rounded-xl shadow-md transition-transform duration-300"
+        className="skill-card glass-ultra p-6 rounded-xl shadow-md transition-transform duration-300"
       >
         <h4 className="title text-xl font-semibold mb-4">{category}</h4>
         <div className="flex flex-wrap gap-3">
@@ -84,7 +84,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="p-font py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative">
+    <section id="about" className="p-font py-20 relative">
       <div className="container mx-auto px-6 relative z-10">
         {/* Titolo */}
         <div className="text-center mb-16">
