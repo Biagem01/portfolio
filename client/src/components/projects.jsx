@@ -43,7 +43,7 @@ function ProjectCard({ project, delay }) {
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="group glass-ultra rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300"
+        className="group glass-ultra rounded-3xl overflow-hidden shadow-spectacular hover:shadow-xl enhanced-card-hover animate-border"
       >
         <div className="relative overflow-hidden">
           <img

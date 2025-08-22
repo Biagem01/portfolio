@@ -39,9 +39,9 @@ function SkillCard({ category, items, delay }) {
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="skill-card glass-ultra p-6 rounded-xl shadow-md transition-transform duration-300"
+        className="skill-card glass-morphism p-6 rounded-xl shadow-spectacular enhanced-card-hover animate-border"
       >
-        <h4 className="title text-xl font-semibold mb-4">{category}</h4>
+        <h4 className="title text-xl font-semibold mb-4 text-glow drop-shadow-lg">{category}</h4>
         <div className="flex flex-wrap gap-3">
           {items.map((skill, i) => (
             <span
@@ -120,9 +120,9 @@ export default function About() {
             <img
               src={Avatar}
               alt="Profile"
-              className="rounded-2xl shadow-2xl w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105"
+              className="rounded-2xl shadow-spectacular w-full max-w-md mx-auto transition-transform duration-500 group-hover:scale-105 animate-border"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 glow-pulse"></div>
           </div>
         </div>
 

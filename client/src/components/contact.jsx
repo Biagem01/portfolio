@@ -105,7 +105,7 @@ export default function Contact() {
                 { icon: "fas fa-map-marker-alt", label: "Location", value: "Comiso, RG" },
               ].map(({ icon, label, value }) => (
                 <div key={label} className="flex items-center space-x-4">
-                  <div className="w-12 h-12 glass-ultra rounded-lg flex items-center justify-center">
+        <div className="w-12 h-12 glass-morphism rounded-lg flex items-center justify-center shadow-cosmic animate-float glow-pulse">
                     <i className={`${icon} text-primary dark:text-primary-light`}></i>
                   </div>
                   <div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   <a
                     key={i}
                     href={href}
-                    className="w-10 h-10 glass-ultra hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
+                    className="w-10 h-10 glass-morphism hover:gradient-cosmic hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 shadow-cosmic animate-float"
                   >
                     <i className={`${icon} text-slate-800 dark:text-slate-200`}></i>
                   </a>
@@ -139,7 +139,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="glass-ultra rounded-3xl p-10 hover-cosmic shadow-cosmic">
+          <div className="glass-morphism rounded-3xl p-10 hover-cosmic shadow-spectacular enhanced-card-hover animate-border">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="title">
                 <Label htmlFor="name">Full Name</Label>

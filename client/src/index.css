@@ -744,6 +744,139 @@
   letter-spacing: 0.4px;       
 }
 
+/* Advanced hover effects for enhanced beauty */
+.enhanced-card-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.enhanced-card-hover:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(102, 126, 234, 0.3),
+    0 15px 30px rgba(147, 51, 234, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Spectacular text glow effects */
+.text-glow {
+  text-shadow: 
+    0 0 10px rgba(102, 126, 234, 0.8),
+    0 0 20px rgba(147, 51, 234, 0.6),
+    0 0 30px rgba(6, 182, 212, 0.4);
+}
+
+/* Enhanced button effects */
+.btn-spectacular {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #667eea, #764ba2, #ff9a9e, #fecfef);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-spectacular:hover {
+  animation-duration: 1s;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+  transform: translateY(-3px);
+}
+
+.btn-spectacular::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.btn-spectacular:hover::before {
+  left: 100%;
+}
+
+/* Ultra beautiful scroll effects */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magnificent border animations */
+.animate-border {
+  background: linear-gradient(45deg, #667eea, #764ba2, #ff9a9e, #fecfef);
+  background-size: 400% 400%;
+  animation: gradientShift 4s ease infinite;
+  padding: 3px;
+  border-radius: 1rem;
+}
+
+.animate-border-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: calc(1rem - 3px);
+  padding: 1.5rem;
+}
+
+/* Floating particles enhancement */
+.particle-field {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatParticle 8s linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced glass morphism */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 60px rgba(102, 126, 234, 0.1);
+}
+
+/* Spectacular shadows */
+.shadow-spectacular {
+  box-shadow: 
+    0 20px 60px rgba(102, 126, 234, 0.3),
+    0 10px 30px rgba(147, 51, 234, 0.2),
+    0 5px 15px rgba(6, 182, 212, 0.1);
+}
+
 
 
 

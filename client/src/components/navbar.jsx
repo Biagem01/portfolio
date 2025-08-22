@@ -48,8 +48,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <div className="text-3xl font-bold text-white text-shimmer hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer" onClick={() => scrollToSection("home")}>
-            BC
+          <div className="text-3xl font-bold text-white text-shimmer hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer text-glow drop-shadow-2xl animate-pulse" onClick={() => scrollToSection("home")}>
+            ✨ BC
           </div>
 
           {/* Desktop Navigation */}
@@ -60,8 +60,8 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-500 ease-in-out
                   ${activeSection === item.id
-                    ? "bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 text-white shadow-lg scale-105"
-                    : "text-white hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-400 hover:text-white hover:scale-105 hover:shadow-md"
+                    ? "btn-spectacular text-white shadow-spectacular scale-105 text-glow"
+                    : "text-white hover:glass-morphism hover:text-white hover:scale-105 hover:shadow-cosmic hover:text-shimmer"
                   }`}
               >
                 {item.label}
