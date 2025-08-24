@@ -23,7 +23,8 @@ export default function ScrollProgress() {
         className="h-full bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 transition-all duration-300 shadow-lg"
         style={{
           width: `${scrollProgress}%`,
-          boxShadow: '0 0 10px rgba(147, 51, 234, 0.5)'
+          boxShadow: '0 0 10px rgba(147, 51, 234, 0.5)',
+          fontFamily: 'Orbitron, monospace'
         }}
       />
     </div>

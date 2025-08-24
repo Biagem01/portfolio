@@ -26,27 +26,29 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Main cursor */}
+      {/* Main cursor - istantaneo senza delay */}
       <div
-        className={`fixed top-0 left-0 w-6 h-6 pointer-events-none z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-6 h-6 pointer-events-none z-50 ${
           isPointer ? 'scale-150' : 'scale-100'
         }`}
         style={{
           transform: `translate(${mousePosition.x - 12}px, ${mousePosition.y - 12}px)`,
+          transition: isPointer ? 'transform 0s, scale 0.15s ease-out' : 'transform 0s, scale 0.15s ease-out',
         }}
       >
         <div className={`w-full h-full rounded-full border-2 ${
           isPointer 
             ? 'border-purple-500 bg-purple-500/20' 
             : 'border-blue-500 bg-blue-500/10'
-        } transition-all duration-300`} />
+        }`} style={{ transition: 'border-color 0.15s ease-out, background-color 0.15s ease-out' }} />
       </div>
       
-      {/* Trailing cursor */}
+      {/* Trailing cursor - leggermente ritardato per effetto scia */}
       <div
-        className="fixed top-0 left-0 w-2 h-2 pointer-events-none z-50 transition-all duration-500"
+        className="fixed top-0 left-0 w-2 h-2 pointer-events-none z-50"
         style={{
           transform: `translate(${mousePosition.x - 4}px, ${mousePosition.y - 4}px)`,
+          transition: 'transform 0.1s ease-out',
         }}
       >
         <div className="w-full h-full rounded-full bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse" />
