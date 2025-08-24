@@ -50,9 +50,18 @@ function ProjectCard({ project, delay }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 filter group-hover:brightness-105"
+            className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 filter group-hover:brightness-110 group-hover:contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 via-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Overlay gradient sofisticato */}
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-purple-600/30 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+          {/* Overlay con effetto prisma */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-800/40 to-transparent opacity-60 group-hover:opacity-40 transition-all duration-500"></div>
+          {/* Effetto brillantezza */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
+          {/* Badge con icona floating */}
+          <div className="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-100">
+            <span className="text-purple-600 dark:text-purple-400 text-lg">✨</span>
+          </div>
         </div>
 
         <div className="p-6 relative">
