@@ -64,18 +64,18 @@ function ProjectCard({ project, delay, isFeature = false }) {
 
         <div className={`p-8 flex-grow flex flex-col ${isFeature ? 'lg:w-3/5' : ''}`}>
           <div className="flex flex-col h-full">
-            <h3 className={`font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 ${isFeature ? 'text-3xl lg:text-4xl' : 'text-xl'}`}>
+            <h3 className={`title font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 ${isFeature ? 'text-3xl lg:text-4xl' : 'text-xl'}`}>
               {project.title}
             </h3>
-            <p className={`text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300 ${isFeature ? 'text-lg' : 'text-base'}`}>
+            <p className={`p-font text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300 ${isFeature ? 'text-lg' : 'text-base'}`}>
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-8">
+            <div className="flex flex-wrap gap-2 mb-8">
               {project.technologies.map((tech, index) => (
                 <span
                   key={tech}
-                  className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-700 group-hover:bg-purple-50 dark:group-hover:bg-purple-900/20 group-hover:border-purple-200 dark:group-hover:border-purple-700 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-600 group-hover:from-purple-100 group-hover:to-purple-200 dark:group-hover:from-purple-900/30 dark:group-hover:to-purple-800/30 group-hover:border-purple-300 dark:group-hover:border-purple-600 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-all duration-300 hover:scale-110 cursor-default shadow-sm hover:shadow-md"
                 >
                   {tech}
                 </span>
@@ -157,12 +157,12 @@ export default function Projects() {
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            I Miei Progetti
+          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+            My Projects
           </h2>
           <div className="w-16 h-0.5 bg-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Una raccolta dei miei lavori più significativi, che mostrano le mie competenze tecniche e la mia passione per lo sviluppo
+          <p className="p-font text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            A collection of my most significant works, showcasing my technical skills and passion for development
           </p>
         </div>
 
@@ -181,7 +181,7 @@ export default function Projects() {
         <div className="text-center mt-16">
           <a
             href="#"
-            className="group inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform"
+            className="title group inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform"
           >
             <span className="group-hover:rotate-12 transition-transform duration-300">🔍</span>
             Vedi tutti i progetti
