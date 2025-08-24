@@ -38,13 +38,13 @@ function ProjectCard({ project, delay, isFeature = false }) {
   return (
     <div
       ref={wrapperRef}
-      className={`${visible ? "animate-bounce-in opacity-100" : "opacity-0"}`}
+      className={`${visible ? "animate-bounce-in opacity-100 transform-none" : "opacity-0 transform translate-y-8"} transition-all duration-700`}
     >
       <div
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className={`group relative bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] h-full flex flex-col ${isFeature ? 'lg:flex-row shadow-xl border-purple-200 dark:border-purple-800' : ''}`}
+        className={`group relative bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-500 hover:scale-105 h-full flex flex-col ${isFeature ? 'lg:flex-row shadow-xl border-purple-200 dark:border-purple-800' : ''}`}
       >
         <div className={`relative overflow-hidden ${isFeature ? 'lg:w-2/5' : ''}`}>
           <img
@@ -52,7 +52,9 @@ function ProjectCard({ project, delay, isFeature = false }) {
             alt={project.title}
             className={`w-full object-cover transition-transform duration-300 group-hover:scale-105 ${isFeature ? 'h-80 lg:h-full' : 'h-56'}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Effetto brillantezza */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
           {isFeature && (
             <div className="absolute top-6 left-6 bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
               ⭐ Progetto in Evidenza
@@ -62,10 +64,10 @@ function ProjectCard({ project, delay, isFeature = false }) {
 
         <div className={`p-8 flex-grow flex flex-col ${isFeature ? 'lg:w-3/5' : ''}`}>
           <div className="flex flex-col h-full">
-            <h3 className={`font-bold text-slate-800 dark:text-slate-100 mb-4 transition-colors duration-300 ${isFeature ? 'text-3xl lg:text-4xl' : 'text-xl'}`}>
+            <h3 className={`font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 ${isFeature ? 'text-3xl lg:text-4xl' : 'text-xl'}`}>
               {project.title}
             </h3>
-            <p className={`text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow ${isFeature ? 'text-lg' : 'text-base'}`}>
+            <p className={`text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300 ${isFeature ? 'text-lg' : 'text-base'}`}>
               {project.description}
             </p>
 
@@ -73,7 +75,7 @@ function ProjectCard({ project, delay, isFeature = false }) {
               {project.technologies.map((tech, index) => (
                 <span
                   key={tech}
-                  className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-700 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:border-purple-200 dark:hover:border-purple-700 transition-colors duration-200"
+                  className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-700 group-hover:bg-purple-50 dark:group-hover:bg-purple-900/20 group-hover:border-purple-200 dark:group-hover:border-purple-700 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-all duration-300 hover:scale-105"
                 >
                   {tech}
                 </span>
@@ -83,16 +85,16 @@ function ProjectCard({ project, delay, isFeature = false }) {
             <div className="flex gap-4 mt-auto">
               <a
                 href={project.demoLink}
-                className="flex-1 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200 flex items-center justify-center gap-2"
+                className="group/link flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 transform"
               >
-                <span>🔗</span>
+                <span className="group-hover/link:rotate-12 transition-transform duration-300">🌐</span>
                 Live Demo
               </a>
               <a
                 href={project.githubLink}
-                className="flex-1 bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200 flex items-center justify-center gap-2"
+                className="group/link flex-1 bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 dark:from-slate-600 dark:to-slate-700 dark:hover:from-slate-500 dark:hover:to-slate-600 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 transform"
               >
-                <span>📂</span>
+                <span className="group-hover/link:rotate-12 transition-transform duration-300">📚</span>
                 GitHub
               </a>
             </div>
@@ -179,10 +181,11 @@ export default function Projects() {
         <div className="text-center mt-16">
           <a
             href="#"
-            className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 gap-2"
+            className="group inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform"
           >
+            <span className="group-hover:rotate-12 transition-transform duration-300">🔍</span>
             Vedi tutti i progetti
-            <span>→</span>
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
           </a>
         </div>
       </div>
