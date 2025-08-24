@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast.js";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,23 +14,25 @@ export default function Contact() {
     message: ""
   });
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState(""); // messaggio sotto form
   const { toast } = useToast();
+  const form = useRef();
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.name || formData.name.length < 2) {
       newErrors.name = "Name must be at least 2 characters long";
     }
-    
+
     if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
-    
+
     if (!formData.message || formData.message.length < 10) {
       newErrors.message = "Message must be at least 10 characters long";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -40,7 +43,7 @@ export default function Contact() {
       ...prev,
       [name]: value
     }));
-    
+
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -51,21 +54,33 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
-    
+    setSuccessMessage(""); // reset messaggio precedente
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await emailjs.sendForm(
+        "service_29nvbfg",
+        "template_nghzm6h",
+        form.current,
+        "y05Tay6-nzRQeU80B"
+      );
+
       toast({
         title: "Message sent successfully!",
         description: "Thank you for your message. I'll get back to you soon.",
+        duration: 5000
       });
-      
+
       setFormData({ name: "", email: "", message: "" });
+      setSuccessMessage("🚀 Message sent successfully! Thank you, I'll get back to you soon.");
+
+      // auto-sparizione dopo 5 secondi
+      setTimeout(() => setSuccessMessage(""), 5000);
     } catch (error) {
+      console.error(error);
       toast({
         title: "Error sending message",
         description: "Sorry, there was an error sending your message. Please try again.",
@@ -80,7 +95,9 @@ export default function Contact() {
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4 drop-shadow-lg text-shimmer animate-bounce-slow">🚀 Get In Touch</h2>
+          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4 drop-shadow-lg text-shimmer animate-bounce-slow">
+            🚀 Get In Touch
+          </h2>
           <p className="p-font text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in drop-shadow-md">
             Let's discuss your next project or potential collaboration opportunities ✨
           </p>
@@ -105,11 +122,11 @@ export default function Contact() {
                 { icon: "fas fa-map-marker-alt", label: "Location", value: "Comiso, RG" },
               ].map(({ icon, label, value }) => (
                 <div key={label} className="flex items-center space-x-4">
-        <div className="w-12 h-12 glass-morphism rounded-lg flex items-center justify-center shadow-cosmic animate-float glow-pulse">
+                  <div className="w-12 h-12 glass-morphism rounded-lg flex items-center justify-center shadow-cosmic animate-float glow-pulse">
                     <i className={`${icon} text-primary dark:text-primary-light`}></i>
                   </div>
                   <div>
-                    <p className=" font-medium text-slate-800 dark:text-slate-100">{label}</p>
+                    <p className="font-medium text-slate-800 dark:text-slate-100">{label}</p>
                     <p className="text-slate-600 dark:text-slate-300">{value}</p>
                   </div>
                 </div>
@@ -118,7 +135,7 @@ export default function Contact() {
 
             {/* Social Links */}
             <div>
-              <p className=" title text-slate-800 dark:text-slate-100 mb-4">Follow me on social media</p>
+              <p className="title text-slate-800 dark:text-slate-100 mb-4">Follow me on social media</p>
               <div className="flex space-x-4">
                 {[
                   { href: "#", icon: "fab fa-linkedin-in" },
@@ -139,8 +156,8 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="glass-morphism rounded-3xl p-10 hover-cosmic shadow-spectacular enhanced-card-hover animate-border">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="glass-ultra rounded-3xl p-10 shadow-cosmic hover-cosmic">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="title">
                 <Label htmlFor="name">Full Name</Label>
                 <Input
@@ -192,7 +209,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className=" title w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic"
+                className="title w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic"
               >
                 {isSubmitting ? (
                   <>
@@ -203,6 +220,10 @@ export default function Contact() {
                   "Send Message"
                 )}
               </Button>
+
+              {successMessage && (
+                <p className="text-green-500 font-medium mt-4">{successMessage}</p>
+              )}
             </form>
           </div>
         </div>
@@ -210,3 +231,8 @@ export default function Contact() {
     </section>
   );
 }
+
+/* service: service_29nvbfg
+   template: template_nghzm6h
+   public key: y05Tay6-nzRQeU80B
+*/

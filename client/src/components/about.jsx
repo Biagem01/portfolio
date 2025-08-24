@@ -46,7 +46,7 @@ function SkillCard({ category, items, delay }) {
           {items.map((skill, i) => (
             <span
               key={skill}
-              className="p-font skill-badge"
+              className="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-default border border-white/20"
               style={{
                 animationDelay: `${i * 0.1}s`,
                 opacity: visible ? 1 : 0,
