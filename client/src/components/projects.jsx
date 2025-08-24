@@ -86,14 +86,16 @@ function ProjectCard({ project, delay, isFeature = false }) {
             <div className="flex gap-4 mt-auto">
               <a
                 href={project.demoLink}
-                className="title group/link flex-1 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm"
+                className="title group/link flex-1 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm animate-float"
+                style={{ animationDelay: `${delay + 0.3}s` }}
               >
                 <span className="group-hover/link:rotate-45 group-hover/link:scale-125 transition-all duration-500">🌐</span>
                 Live Demo
               </a>
               <a
                 href={project.githubLink}
-                className="title group/link flex-1 bg-gradient-to-r from-slate-600 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-800 hover:to-slate-900 dark:from-slate-600 dark:via-slate-700 dark:to-slate-800 dark:hover:from-slate-500 dark:hover:via-slate-600 dark:hover:to-slate-700 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm"
+                className="title group/link flex-1 bg-gradient-to-r from-slate-600 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-800 hover:to-slate-900 dark:from-slate-600 dark:via-slate-700 dark:to-slate-800 dark:hover:from-slate-500 dark:hover:via-slate-600 dark:hover:to-slate-700 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm animate-float"
+                style={{ animationDelay: `${delay + 0.5}s` }}
               >
                 <span className="group-hover/link:rotate-45 group-hover/link:scale-125 transition-all duration-500">📚</span>
                 GitHub
@@ -182,7 +184,8 @@ export default function Projects() {
         <div className="text-center mt-16">
           <a
             href="/projects"
-            className="title group inline-flex items-center bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-500 gap-4 shadow-xl hover:shadow-2xl hover:scale-110 transform border-2 border-white/20 hover:border-white/40 backdrop-blur-sm relative overflow-hidden"
+            className="title group inline-flex items-center bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-500 gap-4 shadow-xl hover:shadow-2xl hover:scale-110 transform border-2 border-white/20 hover:border-white/40 backdrop-blur-sm relative overflow-hidden animate-float"
+            style={{ animationDelay: "1s" }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
             <span className="group-hover:rotate-45 group-hover:scale-125 transition-all duration-500 relative z-10">🔍</span>
