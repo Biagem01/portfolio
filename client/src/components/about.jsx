@@ -32,21 +32,26 @@ function SkillCard({ category, items, delay }) {
   return (
     <div
       ref={wrapperRef}
-      className={`${visible ? "animate-bounce-in opacity-100" : "opacity-0"}`}
+      className={`${visible ? "animate-bounce-in opacity-100 transform-none" : "opacity-0 transform translate-y-8"} transition-all duration-700`}
       style={{ animationDelay: `${delay}s` }}
     >
       <div
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="skill-card glass-morphism p-6 rounded-xl shadow-spectacular enhanced-card-hover animate-border"
+        className="group bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-500 hover:scale-105 h-full"
       >
-        <h4 className="title text-xl font-semibold mb-4 text-glow drop-shadow-lg">{category}</h4>
-        <div className="flex flex-wrap gap-3">
+        <div className="text-center mb-6">
+          <h4 className="text-2xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+            {category}
+          </h4>
+          <div className="w-8 h-0.5 bg-purple-600 mx-auto mt-3 group-hover:w-12 transition-all duration-300"></div>
+        </div>
+        <div className="flex flex-wrap gap-3 justify-center">
           {items.map((skill, i) => (
             <span
               key={skill}
-              className="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-default border border-white/20"
+              className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-700 group-hover:bg-purple-50 dark:group-hover:bg-purple-900/20 group-hover:border-purple-200 dark:group-hover:border-purple-700 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-all duration-300 hover:scale-105 cursor-default"
               style={{
                 animationDelay: `${i * 0.1}s`,
                 opacity: visible ? 1 : 0,
@@ -64,10 +69,11 @@ function SkillCard({ category, items, delay }) {
 // Componente About
 export default function About() {
   const skills = {
-    Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React"],
-    Backend: ["Node.js", "PHP"],
-    Database: ["MySQL"],
-    "Programming Languages": ["C++", "C#"]
+    Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS"],
+    Backend: ["Node.js", "Express.js", "PHP"],
+    Database: ["MySQL", "PostgreSQL"],
+    "Linguaggi": ["C++", "C#", "JavaScript", "TypeScript"],
+    "Tools & Altro": ["Git", "Vite", "NPM", "Drizzle ORM"]
   };
 
   // Stato e ref per animazione avatar
@@ -127,13 +133,19 @@ export default function About() {
         </div>
 
         {/* Skills */}
-        <div className="mt-20">
-          <h3 className="title text-3xl font-bold text-slate-800 dark:text-slate-100 mb-12 text-center drop-shadow-lg text-shimmer animate-pulse">
-            🛠️ Skills & Technologies
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-24">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+              Le Mie Competenze
+            </h3>
+            <div className="w-16 h-0.5 bg-purple-600 mx-auto mb-6"></div>
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+              Le tecnologie e gli strumenti che utilizzo per creare esperienze digitali innovative
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {Object.entries(skills).map(([category, items], idx) => (
-              <SkillCard key={category} category={category} items={items} delay={idx * 0.2} />
+              <SkillCard key={category} category={category} items={items} delay={idx * 0.15} />
             ))}
           </div>
         </div>
