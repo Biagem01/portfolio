@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { Link } from "wouter";
 
 // Componente per le card dei progetti nella pagina dedicata
-function ProjectShowcaseCard({ project, index }) {
+function ProjectShowcaseCard({ project, index, variant = "default" }) {
   const wrapperRef = useRef(null);
   const innerRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -45,13 +45,17 @@ function ProjectShowcaseCard({ project, index }) {
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="group relative bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-500 hover:scale-105 h-full flex flex-col"
+        className={`group relative bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-500 hover:scale-105 h-full ${variant === "large" ? "flex flex-col lg:flex-row" : "flex flex-col"} ${variant === "wide" ? "col-span-2" : ""} ${variant === "tall" ? "row-span-2" : ""}`}
       >
-        <div className="relative overflow-hidden">
+        <div className={`relative overflow-hidden ${variant === "large" ? "lg:w-1/2" : ""}`}>
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+            className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
+              variant === "large" ? "h-80 lg:h-full" : 
+              variant === "small" ? "h-48" :
+              variant === "tall" ? "h-80" : "h-64"
+            }`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           {/* Effetto brillantezza */}
@@ -63,9 +67,12 @@ function ProjectShowcaseCard({ project, index }) {
           )}
         </div>
 
-        <div className="p-8 flex-grow flex flex-col">
+        <div className={`p-8 flex-grow flex flex-col ${variant === "large" ? "lg:w-1/2" : ""}`}>
           <div className="flex flex-col h-full">
-            <h3 className="title text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+            <h3 className={`title font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 ${
+              variant === "large" ? "text-3xl lg:text-4xl" : 
+              variant === "small" ? "text-lg" : "text-2xl"
+            }`}>
               {project.title}
             </h3>
             <p className="p-font text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300">
@@ -160,9 +167,21 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-blue-900/10 dark:to-purple-900/10">
-      {/* Background decorativo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50/20 via-blue-50/10 to-pink-50/20 dark:from-purple-900/5 dark:via-blue-900/5 dark:to-pink-900/5"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-blue-900/10 dark:to-purple-900/10 relative overflow-hidden">
+      {/* Background animato con forme geometriche */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-60 right-20 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-teal-400/10 to-cyan-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
+      
+      {/* Pattern decorativo */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(138, 43, 226, 0.3) 1px, transparent 0)`,
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
       
       <div className="container mx-auto px-6 py-24 relative z-10">
         {/* Header con navigazione */}
@@ -186,11 +205,26 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-        {/* Griglia progetti */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {allProjects.map((project, index) => (
-            <ProjectShowcaseCard key={index} project={project} index={index} />
-          ))}
+        {/* Griglia progetti dinamica */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 auto-rows-auto">
+          <div className="lg:col-span-2">
+            <ProjectShowcaseCard project={allProjects[0]} index={0} variant="large" />
+          </div>
+          <div className="lg:row-span-2">
+            <ProjectShowcaseCard project={allProjects[1]} index={1} variant="tall" />
+          </div>
+          <div>
+            <ProjectShowcaseCard project={allProjects[2]} index={2} variant="small" />
+          </div>
+          <div className="lg:col-span-2">
+            <ProjectShowcaseCard project={allProjects[3]} index={3} variant="wide" />
+          </div>
+          <div>
+            <ProjectShowcaseCard project={allProjects[4]} index={4} variant="default" />
+          </div>
+          <div>
+            <ProjectShowcaseCard project={allProjects[5]} index={5} variant="default" />
+          </div>
         </div>
 
         {/* Footer della pagina */}
