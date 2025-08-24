@@ -95,8 +95,10 @@ export default function Contact() {
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4 drop-shadow-lg text-shimmer animate-bounce-slow">
-            🚀 Get In Touch
+          <h2 className="title text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg animate-bounce-slow">
+            <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
+              🚀 Get In Touch
+            </span>
           </h2>
           <p className="p-font text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in drop-shadow-md">
             Let's discuss your next project or potential collaboration opportunities ✨
@@ -147,6 +149,7 @@ export default function Contact() {
                     key={i}
                     href={href}
                     className="w-10 h-10 glass-morphism hover:gradient-cosmic hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 shadow-cosmic animate-float"
+                    style={{ animationDelay: `${i * 0.2}s` }}
                   >
                     <i className={`${icon} text-slate-800 dark:text-slate-200`}></i>
                   </a>
@@ -209,7 +212,8 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="title w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic"
+                className="title w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic animate-float"
+                style={{ animationDelay: "0.8s" }}
               >
                 {isSubmitting ? (
                   <>

@@ -21,14 +21,14 @@ export default function Hero() {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 text-shadow animate-fade-in">
-            <span className="text-slate-800 dark:text-slate-100 hover:scale-110 transition-transform duration-500 drop-shadow-2xl">
+            <span className="bg-gradient-to-r from-slate-800 via-purple-600 to-slate-800 dark:from-slate-100 dark:via-purple-400 dark:to-slate-100 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 drop-shadow-2xl">
               Biagio
             </span>{" "}
-            <span className="text-shimmer glow-pulse animate-bounce-slow">Cubisino</span>
+            <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent glow-pulse animate-bounce-slow drop-shadow-2xl">Cubisino</span>
           </h1>
           <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light drop-shadow-lg animate-slide-in-left">
             Full Stack Developer crafting exceptional digital experiences with{" "}
-            <span className="font-semibold text-shimmer animate-pulse"> modern technologies</span>
+            <span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent animate-pulse"> modern technologies</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8 animate-slide-in-right">

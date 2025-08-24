@@ -94,8 +94,10 @@ export default function About() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Titolo */}
         <div className="text-center mb-16">
-          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4 drop-shadow-lg text-shimmer animate-bounce-slow">
-            ✨ About Me
+          <h2 className="title text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg animate-bounce-slow">
+            <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
+              ✨ About Me
+            </span>
           </h2>
           <p className="p-font text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in drop-shadow-md">
             Passionate about technology and web development, always looking for new challenges to grow as a developer. 🌟
@@ -135,8 +137,10 @@ export default function About() {
         {/* Skills */}
         <div className="mt-24">
           <div className="text-center mb-16">
-            <h3 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-              My Skills
+            <h3 className="title text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
+                My Skills
+              </span>
             </h3>
             <div className="w-16 h-0.5 bg-purple-600 mx-auto mb-6"></div>
             <p className="p-font text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">

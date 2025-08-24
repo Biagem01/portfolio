@@ -5,6 +5,12 @@ import Projects from "@/components/projects.jsx";
 import Contact from "@/components/contact.jsx";
 import Footer from "@/components/footer.jsx";
 import CosmicBackground from "../components/ui/cosmicBackground";
+import ScrollProgress from "@/components/scroll-progress.jsx";
+import CustomCursor from "@/components/custom-cursor.jsx";
+import AnimatedBackground from "@/components/animated-background.jsx";
+import Achievements from "@/components/achievements.jsx";
+import EasterEgg from "@/components/easter-egg.jsx";
+import LoadingScreen from "@/components/loading-screen.jsx";
 
 export default function Home() {
   const particles = Array.from({ length: 50 }).map(() => {
@@ -19,7 +25,12 @@ export default function Home() {
   });
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950" style={{cursor: 'none'}}>
+      <LoadingScreen />
+      <ScrollProgress />
+      <CustomCursor />
+      <AnimatedBackground />
+      <EasterEgg />
       {/* 🌌 Ultra Enhanced Cosmic Background - Super Spectacular */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Massive cosmic blobs layer 1 */}
@@ -91,6 +102,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <About />
+        <Achievements />
         <Projects />
         <Contact />
         <Footer />

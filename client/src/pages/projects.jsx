@@ -1,6 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "wouter";
 import { ThemeToggle } from "@/components/theme-toggle.jsx";
+import ScrollProgress from "@/components/scroll-progress.jsx";
+import CustomCursor from "@/components/custom-cursor.jsx";
+import AnimatedBackground from "@/components/animated-background.jsx";
 
 // Componente per le card dei progetti nella pagina dedicata
 function ProjectShowcaseCard({ project, index }) {
@@ -164,7 +167,10 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-blue-900/10 dark:to-purple-900/10 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-blue-900/10 dark:to-purple-900/10 relative overflow-hidden" style={{cursor: 'none'}}>
+      <ScrollProgress />
+      <CustomCursor />
+      <AnimatedBackground />
       {/* Background animato con forme geometriche */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-pulse"></div>
@@ -196,8 +202,10 @@ export default function ProjectsPage() {
 
         {/* Titolo della pagina */}
         <div className="text-center mb-20">
-          <h1 className="title text-5xl md:text-6xl lg:text-7xl font-bold text-slate-800 dark:text-slate-100 mb-6 drop-shadow-lg">
-            All My Projects
+          <h1 className="title text-5xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
+            <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
+              All My Projects
+            </span>
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mb-6 rounded-full"></div>
           <p className="p-font text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
