@@ -85,16 +85,16 @@ function ProjectCard({ project, delay, isFeature = false }) {
             <div className="flex gap-4 mt-auto">
               <a
                 href={project.demoLink}
-                className="group/link flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 transform"
+                className="title group/link flex-1 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm"
               >
-                <span className="group-hover/link:rotate-12 transition-transform duration-300">🌐</span>
+                <span className="group-hover/link:rotate-45 group-hover/link:scale-125 transition-all duration-500">🌐</span>
                 Live Demo
               </a>
               <a
                 href={project.githubLink}
-                className="group/link flex-1 bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 dark:from-slate-600 dark:to-slate-700 dark:hover:from-slate-500 dark:hover:to-slate-600 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 transform"
+                className="title group/link flex-1 bg-gradient-to-r from-slate-600 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-800 hover:to-slate-900 dark:from-slate-600 dark:via-slate-700 dark:to-slate-800 dark:hover:from-slate-500 dark:hover:via-slate-600 dark:hover:to-slate-700 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm"
               >
-                <span className="group-hover/link:rotate-12 transition-transform duration-300">📚</span>
+                <span className="group-hover/link:rotate-45 group-hover/link:scale-125 transition-all duration-500">📚</span>
                 GitHub
               </a>
             </div>
@@ -181,11 +181,12 @@ export default function Projects() {
         <div className="text-center mt-16">
           <a
             href="#"
-            className="title group inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform"
+            className="title group inline-flex items-center bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-500 gap-4 shadow-xl hover:shadow-2xl hover:scale-110 transform border-2 border-white/20 hover:border-white/40 backdrop-blur-sm relative overflow-hidden"
           >
-            <span className="group-hover:rotate-12 transition-transform duration-300">🔍</span>
-            Vedi tutti i progetti
-            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
+            <span className="group-hover:rotate-45 group-hover:scale-125 transition-all duration-500 relative z-10">🔍</span>
+            <span className="relative z-10">View All Projects</span>
+            <span className="group-hover:translate-x-2 group-hover:scale-125 transition-all duration-500 relative z-10">→</span>
           </a>
         </div>
       </div>
