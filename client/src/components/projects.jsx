@@ -38,7 +38,8 @@ function ProjectCard({ project, delay, isFeature = false }) {
   return (
     <div
       ref={wrapperRef}
-      className={`${visible ? "animate-bounce-in opacity-100 transform-none" : "opacity-0 transform translate-y-8"} transition-all duration-700`}
+      className={`${visible ? "animate-bounce-in opacity-100 transform-none" : "opacity-0 transform translate-y-8"} transition-all duration-700 animate-float`}
+      style={{ animationDelay: `${delay}s` }}
     >
       <div
         ref={innerRef}

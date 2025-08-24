@@ -1,8 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "wouter";
+import { ThemeToggle } from "@/components/theme-toggle.jsx";
 
 // Componente per le card dei progetti nella pagina dedicata
-function ProjectShowcaseCard({ project, index, variant = "default" }) {
+function ProjectShowcaseCard({ project, index }) {
   const wrapperRef = useRef(null);
   const innerRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -39,23 +40,20 @@ function ProjectShowcaseCard({ project, index, variant = "default" }) {
   return (
     <div
       ref={wrapperRef}
-      className={`${visible ? "animate-bounce-in opacity-100 transform-none" : "opacity-0 transform translate-y-8"} transition-all duration-700`}
+      className={`${visible ? "animate-bounce-in opacity-100 transform-none" : "opacity-0 transform translate-y-8"} transition-all duration-700 animate-float`}
+      style={{ animationDelay: `${index * 0.2}s` }}
     >
       <div
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className={`group relative bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-500 hover:scale-105 h-full ${variant === "large" ? "flex flex-col lg:flex-row" : "flex flex-col"} ${variant === "wide" ? "col-span-2" : ""} ${variant === "tall" ? "row-span-2" : ""}`}
+        className="group relative bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-500 hover:scale-105 h-full flex flex-col"
       >
-        <div className={`relative overflow-hidden ${variant === "large" ? "lg:w-1/2" : ""}`}>
+        <div className="relative overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
-            className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-              variant === "large" ? "h-80 lg:h-full" : 
-              variant === "small" ? "h-48" :
-              variant === "tall" ? "h-80" : "h-64"
-            }`}
+            className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           {/* Effetto brillantezza */}
@@ -67,12 +65,9 @@ function ProjectShowcaseCard({ project, index, variant = "default" }) {
           )}
         </div>
 
-        <div className={`p-8 flex-grow flex flex-col ${variant === "large" ? "lg:w-1/2" : ""}`}>
+        <div className="p-8 flex-grow flex flex-col">
           <div className="flex flex-col h-full">
-            <h3 className={`title font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 ${
-              variant === "large" ? "text-3xl lg:text-4xl" : 
-              variant === "small" ? "text-lg" : "text-2xl"
-            }`}>
+            <h3 className="title text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
               {project.title}
             </h3>
             <p className="p-font text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300">
@@ -192,6 +187,9 @@ export default function ProjectsPage() {
               Back to Home
             </button>
           </Link>
+          <div className="animate-float" style={{ animationDelay: "0.5s" }}>
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Titolo della pagina */}
@@ -205,26 +203,11 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-        {/* Griglia progetti dinamica */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 auto-rows-auto">
-          <div className="lg:col-span-2">
-            <ProjectShowcaseCard project={allProjects[0]} index={0} variant="large" />
-          </div>
-          <div className="lg:row-span-2">
-            <ProjectShowcaseCard project={allProjects[1]} index={1} variant="tall" />
-          </div>
-          <div>
-            <ProjectShowcaseCard project={allProjects[2]} index={2} variant="small" />
-          </div>
-          <div className="lg:col-span-2">
-            <ProjectShowcaseCard project={allProjects[3]} index={3} variant="wide" />
-          </div>
-          <div>
-            <ProjectShowcaseCard project={allProjects[4]} index={4} variant="default" />
-          </div>
-          <div>
-            <ProjectShowcaseCard project={allProjects[5]} index={5} variant="default" />
-          </div>
+        {/* Griglia progetti pulita e ordinata */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {allProjects.map((project, index) => (
+            <ProjectShowcaseCard key={index} project={project} index={index} />
+          ))}
         </div>
 
         {/* Footer della pagina */}
