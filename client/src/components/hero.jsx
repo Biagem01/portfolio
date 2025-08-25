@@ -15,10 +15,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="font-hero min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="font-hero w-full h-full flex items-center justify-center relative"
     >
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-20 animate-scroll-reveal">
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 text-shadow animate-fade-in">
             <span className="bg-gradient-to-r from-slate-800 via-purple-600 to-slate-800 dark:from-slate-100 dark:via-purple-400 dark:to-slate-100 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 drop-shadow-2xl">
@@ -77,6 +77,19 @@ export default function Hero() {
           >
             <i className="fas fa-envelope text-xl text-slate-800 dark:text-slate-200 drop-shadow-md"></i>
           </a>
+          </div>
+        </div>
+      </div>
+      
+      {/* Scroll hint at bottom */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex flex-col items-center space-y-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer animate-bounce"
+             onClick={() => scrollToSection("about")}>
+          <div className="text-sm font-medium tracking-wider uppercase">
+            Scroll to Explore
+          </div>
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center hover:border-white transition-colors duration-300">
+            <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce hover:bg-white transition-colors duration-300"></div>
           </div>
         </div>
       </div>

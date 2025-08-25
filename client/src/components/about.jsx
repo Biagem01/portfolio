@@ -90,8 +90,8 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="p-font py-20 relative">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="about" className="p-font w-full h-full flex items-center justify-center relative">
+      <div className="container mx-auto px-6 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal">
         {/* Titolo */}
         <div className="text-center mb-16">
           <h2 className="title text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg animate-bounce-slow">

@@ -10,36 +10,64 @@ export default function Navbar() {
   useEffect(() => {
     const sections = ["home", "about", "projects", "contact"];
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+          const sectionContainer = element.closest('.scroll-section');
+          if (sectionContainer) {
+            const { offsetTop, offsetHeight } = sectionContainer;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       }
+      
+      // Add scroll reveal animations
+      const revealElements = document.querySelectorAll('.animate-scroll-reveal');
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          el.classList.add('visible');
+        }
+      });
     };
+    
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 80;
-      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      // For snap scrolling, we scroll to the section container
+      const sectionContainer = element.closest('.scroll-section');
+      if (sectionContainer) {
+        sectionContainer.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     }
     setIsMenuOpen(false);
   };
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: "Home", icon: "🏠" },
+    { id: "about", label: "About", icon: "👨‍💻" },
+    { id: "projects", label: "Projects", icon: "🚀" },
+    { id: "contact", label: "Contact", icon: "📧" },
   ];
 
   return (
@@ -58,13 +86,14 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-500 ease-in-out
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-500 ease-in-out flex items-center gap-2 backdrop-blur-sm
                   ${activeSection === item.id
-                    ? "btn-spectacular text-white shadow-spectacular scale-105 text-glow"
-                    : "text-slate-900 dark:text-white hover:btn-spectacular hover:shadow-spectacular hover:scale-105"
+                    ? "bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white shadow-spectacular scale-105 text-glow border border-white/20"
+                    : "text-slate-900 dark:text-white hover:bg-gradient-to-r hover:from-purple-600/80 hover:via-indigo-600/80 hover:to-purple-700/80 hover:text-white hover:shadow-spectacular hover:scale-105 hover:border hover:border-white/20"
                   }`}
               >
-                {item.label}
+                <span className="text-lg">{item.icon}</span>
+                <span>{item.label}</span>
               </button>
             ))}
           </div>

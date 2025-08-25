@@ -11,6 +11,7 @@ import AnimatedBackground from "@/components/animated-background.jsx";
 import Achievements from "@/components/achievements.jsx";
 import EasterEgg from "@/components/easter-egg.jsx";
 import LoadingScreen from "@/components/loading-screen.jsx";
+import ScrollIndicator from "@/components/scroll-indicator.jsx";
 
 export default function Home() {
   const particles = Array.from({ length: 50 }).map(() => {
@@ -25,12 +26,13 @@ export default function Home() {
   });
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950" style={{cursor: 'none'}}>
+    <div className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950" style={{cursor: 'none'}}>
       <LoadingScreen />
       <ScrollProgress />
       <CustomCursor />
       <AnimatedBackground />
       <EasterEgg />
+      <ScrollIndicator />
       {/* 🌌 Ultra Enhanced Cosmic Background - Super Spectacular */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Massive cosmic blobs layer 1 */}
@@ -100,11 +102,69 @@ export default function Home() {
       {/* 🌟 Content (Navbar, sections, Footer) */}
       <div className="relative z-10 text-slate-800 dark:text-slate-100">
         <Navbar />
-        <Hero />
-        <About />
-        <Achievements />
-        <Projects />
-        <Contact />
+        
+        {/* Full-page scrolling sections */}
+        <div className="scroll-section parallax-container">
+          <div className="parallax-bg animate-parallax">
+            {/* Enhanced cosmic background layer */}
+            <div className="absolute inset-0 opacity-30">
+              <div className="absolute top-1/4 left-1/4 w-96 h-96 gradient-cosmic opacity-40 liquid-blob blur-3xl"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-80 h-80 gradient-sunset opacity-45 float-beautiful blur-3xl"></div>
+            </div>
+          </div>
+          <div className="parallax-content">
+            <Hero />
+          </div>
+        </div>
+        
+        <div className="scroll-section parallax-container">
+          <div className="parallax-bg animate-parallax">
+            <div className="absolute inset-0 opacity-25">
+              <div className="absolute top-1/3 right-1/3 w-72 h-72 gradient-ocean opacity-35 breathe blur-3xl"></div>
+              <div className="absolute bottom-1/3 left-1/3 w-64 h-64 gradient-ethereal opacity-30 sparkle blur-3xl"></div>
+            </div>
+          </div>
+          <div className="parallax-content">
+            <About />
+          </div>
+        </div>
+        
+        <div className="scroll-section parallax-container">
+          <div className="parallax-bg animate-parallax">
+            <div className="absolute inset-0 opacity-25">
+              <div className="absolute top-1/2 left-1/2 w-88 h-88 gradient-royal opacity-32 liquid-blob blur-2xl"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-56 h-56 gradient-cosmic opacity-28 float-beautiful blur-xl"></div>
+            </div>
+          </div>
+          <div className="parallax-content">
+            <Achievements />
+          </div>
+        </div>
+        
+        <div className="scroll-section parallax-container">
+          <div className="parallax-bg animate-parallax">
+            <div className="absolute inset-0 opacity-25">
+              <div className="absolute top-1/5 right-1/5 w-64 h-64 gradient-sunset opacity-35 breathe blur-xl"></div>
+              <div className="absolute bottom-1/5 left-1/5 w-72 h-72 gradient-ocean opacity-30 sparkle blur-xl"></div>
+            </div>
+          </div>
+          <div className="parallax-content">
+            <Projects />
+          </div>
+        </div>
+        
+        <div className="scroll-section parallax-container">
+          <div className="parallax-bg animate-parallax">
+            <div className="absolute inset-0 opacity-25">
+              <div className="absolute top-1/3 left-1/3 w-80 h-80 gradient-ethereal opacity-32 float-beautiful blur-2xl"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-68 h-68 gradient-royal opacity-28 liquid-blob blur-xl"></div>
+            </div>
+          </div>
+          <div className="parallax-content">
+            <Contact />
+          </div>
+        </div>
+        
         <Footer />
       </div>
     </div>

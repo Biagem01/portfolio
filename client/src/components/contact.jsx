@@ -92,8 +92,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="contact" className="w-full h-full flex items-center justify-center relative">
+      <div className="container mx-auto px-6 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal">
         <div className="text-center mb-16">
           <h2 className="title text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg animate-bounce-slow">
             <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">

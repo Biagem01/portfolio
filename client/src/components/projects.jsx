@@ -156,9 +156,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-24 relative overflow-hidden"
+      className="w-full h-full flex items-center justify-center relative overflow-hidden"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal">
         <div className="text-center mb-16">
           <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
             My Projects
