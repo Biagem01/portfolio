@@ -93,43 +93,43 @@ export default function Contact() {
 
   return (
     <section id="contact" className="w-full h-full flex items-center justify-center relative">
-      <div className="container mx-auto px-6 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal">
-        <div className="text-center mb-16">
-          <h2 className="title text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg animate-bounce-slow">
+      <div className="container mx-auto px-8 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal max-w-6xl">
+        <div className="text-center mb-24">
+          <h2 className="text-minimal-title mb-8">
             <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
-              🚀 Get In Touch
+              CONTACT
             </span>
           </h2>
-          <p className="p-font text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in drop-shadow-md">
-            Let's discuss your next project or potential collaboration opportunities ✨
+          <p className="text-minimal-subtitle text-slate-600 dark:text-slate-300 max-w-4xl mx-auto">
+            Let's discuss your next project or potential collaboration opportunities
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="space-y-12">
             <div>
-              <h3 className="title text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">Let's Connect</h3>
-              <p className="p-font text-slate-600 dark:text-slate-300 mb-8">
+              <h3 className="font-orbitron text-xl font-medium text-slate-800 dark:text-slate-100 mb-8 tracking-wider uppercase">Let's Connect</h3>
+              <p className="text-minimal-body text-slate-600 dark:text-slate-300">
                 I'm always interested in hearing about new opportunities and exciting projects. 
                 Whether you're a company looking to hire, or you're a fellow developer wanting to collaborate, 
                 feel free to reach out!
               </p>
             </div>
 
-            <div className="project-description space-y-4">
+            <div className="space-y-6">
               {[
                 { icon: "fas fa-envelope", label: "Email", value: "biagio.99cubisino@gmail.com" },
                 { icon: "fas fa-phone", label: "Phone", value: "+39 3425180540" },
                 { icon: "fas fa-map-marker-alt", label: "Location", value: "Comiso, RG" },
               ].map(({ icon, label, value }) => (
                 <div key={label} className="flex items-center space-x-4">
-                  <div className="w-12 h-12 glass-morphism rounded-lg flex items-center justify-center shadow-cosmic animate-float glow-pulse">
-                    <i className={`${icon} text-primary dark:text-primary-light`}></i>
+                  <div className="w-12 h-12 border border-slate-300 dark:border-slate-600 flex items-center justify-center">
+                    <i className={`${icon} text-slate-600 dark:text-slate-400`}></i>
                   </div>
                   <div>
-                    <p className="font-medium text-slate-800 dark:text-slate-100">{label}</p>
-                    <p className="text-slate-600 dark:text-slate-300">{value}</p>
+                    <p className="font-orbitron font-medium text-slate-800 dark:text-slate-100 text-sm tracking-wider uppercase">{label}</p>
+                    <p className="text-minimal-body text-slate-600 dark:text-slate-300">{value}</p>
                   </div>
                 </div>
               ))}
@@ -137,21 +137,19 @@ export default function Contact() {
 
             {/* Social Links */}
             <div>
-              <p className="title text-slate-800 dark:text-slate-100 mb-4">Follow me on social media</p>
+              <p className="font-orbitron font-medium text-slate-800 dark:text-slate-100 mb-6 text-sm tracking-wider uppercase">Follow me</p>
               <div className="flex space-x-4">
                 {[
-                  { href: "#", icon: "fab fa-linkedin-in" },
-                  { href: "#", icon: "fab fa-github" },
-                  { href: "#", icon: "fab fa-twitter" },
-                  { href: "#", icon: "fas fa-globe" },
+                  { href: "https://www.linkedin.com/in/biagio-cubisino-40a6ab252/", icon: "fab fa-linkedin-in" },
+                  { href: "https://github.com/Biagem01?tab=repositories", icon: "fab fa-github" },
+                  { href: "mailto:biagio.99cubisino@gmail.com", icon: "fas fa-envelope" },
                 ].map(({ href, icon }, i) => (
                   <a
                     key={i}
                     href={href}
-                    className="w-10 h-10 glass-morphism hover:gradient-cosmic hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 shadow-cosmic animate-float"
-                    style={{ animationDelay: `${i * 0.2}s` }}
+                    className="w-12 h-12 border border-slate-300 dark:border-slate-600 flex items-center justify-center transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                   >
-                    <i className={`${icon} text-slate-800 dark:text-slate-200`}></i>
+                    <i className={`${icon} text-slate-600 dark:text-slate-400`}></i>
                   </a>
                 ))}
               </div>
@@ -159,10 +157,10 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="glass-ultra rounded-3xl p-10 shadow-cosmic hover-cosmic">
+          <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm border border-slate-200 dark:border-slate-700 p-8">
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
-              <div className="title">
-                <Label htmlFor="name">Full Name</Label>
+              <div>
+                <Label htmlFor="name" className="font-orbitron text-sm font-medium tracking-wider uppercase">Full Name</Label>
                 <Input
                   id="name"
                   name="name"
@@ -177,8 +175,8 @@ export default function Contact() {
                 )}
               </div>
 
-              <div className="title">
-                <Label htmlFor="email">Email Address</Label>
+              <div>
+                <Label htmlFor="email" className="font-orbitron text-sm font-medium tracking-wider uppercase">Email Address</Label>
                 <Input
                   id="email"
                   name="email"
@@ -193,8 +191,8 @@ export default function Contact() {
                 )}
               </div>
 
-              <div className="title">
-                <Label htmlFor="message">Message</Label>
+              <div>
+                <Label htmlFor="message" className="font-orbitron text-sm font-medium tracking-wider uppercase">Message</Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -212,8 +210,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="title w-full gradient-cosmic text-white py-5 px-8 rounded-2xl hover-cosmic font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-cosmic animate-float"
-                style={{ animationDelay: "0.8s" }}
+                className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white py-4 px-8 font-orbitron font-medium text-sm tracking-wider uppercase disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
               >
                 {isSubmitting ? (
                   <>

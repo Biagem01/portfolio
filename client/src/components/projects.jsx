@@ -45,59 +45,48 @@ function ProjectCard({ project, delay, isFeature = false }) {
         ref={innerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className={`group relative bg-white/80 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-500 hover:scale-105 h-full flex flex-col ${isFeature ? 'lg:flex-row shadow-xl border-purple-200 dark:border-purple-800' : ''}`}
+        className={`group relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-300 hover:bg-white/60 dark:hover:bg-slate-900/60 h-full flex flex-col`}
       >
-        <div className={`relative overflow-hidden ${isFeature ? 'lg:w-2/5' : ''}`}>
+        <div className="relative overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
-            className={`w-full object-cover transition-transform duration-300 group-hover:scale-105 ${isFeature ? 'h-80 lg:h-full' : 'h-56'}`}
+            className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          {/* Effetto brillantezza */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
-          {isFeature && (
-            <div className="absolute top-6 left-6 bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-              ⭐ Progetto in Evidenza
-            </div>
-          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
 
-        <div className={`p-8 flex-grow flex flex-col ${isFeature ? 'lg:w-3/5' : ''}`}>
+        <div className="p-6 flex-grow flex flex-col">
           <div className="flex flex-col h-full">
-            <h3 className={`title font-bold text-slate-800 dark:text-slate-100 mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 ${isFeature ? 'text-3xl lg:text-4xl' : 'text-xl'}`}>
+            <h3 className="font-orbitron font-medium text-lg text-slate-800 dark:text-slate-100 mb-4 tracking-wide uppercase">
               {project.title}
             </h3>
-            <p className={`p-font text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300 ${isFeature ? 'text-lg' : 'text-base'}`}>
+            <p className="text-minimal-body text-slate-600 dark:text-slate-300 mb-6 flex-grow">
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-2 mb-6">
               {project.technologies.map((tech, index) => (
                 <span
                   key={tech}
-                  className="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-600 group-hover:from-purple-100 group-hover:to-purple-200 dark:group-hover:from-purple-900/30 dark:group-hover:to-purple-800/30 group-hover:border-purple-300 dark:group-hover:border-purple-600 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-all duration-300 hover:scale-110 cursor-default shadow-sm hover:shadow-md"
+                  className="text-slate-500 dark:text-slate-400 text-xs font-medium"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            <div className="flex gap-4 mt-auto">
+            <div className="flex gap-3 mt-auto">
               <a
                 href={project.demoLink}
-                className="title group/link flex-1 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm animate-float"
-                style={{ animationDelay: `${delay + 0.3}s` }}
+                className="flex-1 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-4 py-2 text-center font-orbitron text-xs tracking-wider uppercase hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300"
               >
-                <span className="group-hover/link:rotate-45 group-hover/link:scale-125 transition-all duration-500">🌐</span>
                 Live Demo
               </a>
               <a
                 href={project.githubLink}
-                className="title group/link flex-1 bg-gradient-to-r from-slate-600 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-800 hover:to-slate-900 dark:from-slate-600 dark:via-slate-700 dark:to-slate-800 dark:hover:from-slate-500 dark:hover:via-slate-600 dark:hover:to-slate-700 text-white px-6 py-3 rounded-xl font-bold text-center transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-110 transform border border-white/20 hover:border-white/40 backdrop-blur-sm animate-float"
-                style={{ animationDelay: `${delay + 0.5}s` }}
+                className="flex-1 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-4 py-2 text-center font-orbitron text-xs tracking-wider uppercase hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300"
               >
-                <span className="group-hover/link:rotate-45 group-hover/link:scale-125 transition-all duration-500">📚</span>
                 GitHub
               </a>
             </div>
@@ -158,39 +147,32 @@ export default function Projects() {
       id="projects"
       className="w-full h-full flex items-center justify-center relative overflow-hidden"
     >
-      <div className="container mx-auto px-6 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal">
-        <div className="text-center mb-16">
-          <h2 className="title text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            My Projects
+      <div className="container mx-auto px-8 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal max-w-6xl">
+        <div className="text-center mb-24">
+          <h2 className="text-minimal-title mb-8">
+            <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
+              PROJECTS
+            </span>
           </h2>
-          <div className="w-16 h-0.5 bg-purple-600 mx-auto mb-6"></div>
-          <p className="p-font text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-minimal-subtitle text-slate-600 dark:text-slate-400 max-w-4xl mx-auto">
             A collection of my most significant works, showcasing my technical skills and passion for development
           </p>
         </div>
 
-        {/* Progetto Featured */}
-        <div className="mb-16">
-          <ProjectCard project={projects[0]} delay={0} isFeature={true} />
-        </div>
-
-        {/* Altri progetti in griglia ordinata */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(1).map((project, index) => (
-            <ProjectCard key={index + 1} project={project} delay={(index + 1) * 0.2} />
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} delay={index * 0.2} />
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center">
           <a
             href="/projects"
-            className="title group inline-flex items-center bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-500 gap-4 shadow-xl hover:shadow-2xl hover:scale-110 transform border-2 border-white/20 hover:border-white/40 backdrop-blur-sm relative overflow-hidden animate-float"
-            style={{ animationDelay: "1s" }}
+            className="inline-flex items-center border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-8 py-4 font-orbitron font-medium text-sm tracking-wider uppercase hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 gap-4"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
-            <span className="group-hover:rotate-45 group-hover:scale-125 transition-all duration-500 relative z-10">🔍</span>
-            <span className="relative z-10">View All Projects</span>
-            <span className="group-hover:translate-x-2 group-hover:scale-125 transition-all duration-500 relative z-10">→</span>
+            <span>View All Projects</span>
+            <span>→</span>
           </a>
         </div>
       </div>
