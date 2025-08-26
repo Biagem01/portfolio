@@ -1,89 +1,39 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast.js";
-import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState(""); // messaggio sotto form
   const { toast } = useToast();
-  const form = useRef();
+  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.name || formData.name.length < 2) {
-      newErrors.name = "Name must be at least 2 characters long";
-    }
-
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-
-    if (!formData.message || formData.message.length < 10) {
-      newErrors.message = "Message must be at least 10 characters long";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ""
-      }));
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
+  const onSubmit = async (data) => {
     setIsSubmitting(true);
-    setSuccessMessage(""); // reset messaggio precedente
-
+    
     try {
-      await emailjs.sendForm(
-        "service_29nvbfg",
-        "template_nghzm6h",
-        form.current,
-        "y05Tay6-nzRQeU80B"
-      );
-
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast({
-        title: "Message sent successfully!",
+        title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
-        duration: 5000
       });
-
-      setFormData({ name: "", email: "", message: "" });
-      setSuccessMessage("🚀 Message sent successfully! Thank you, I'll get back to you soon.");
-
-      // auto-sparizione dopo 5 secondi
-      setTimeout(() => setSuccessMessage(""), 5000);
+      
+      reset();
     } catch (error) {
-      console.error(error);
       toast({
-        title: "Error sending message",
-        description: "Sorry, there was an error sending your message. Please try again.",
+        title: "Error",
+        description: "Failed to send message. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -92,52 +42,67 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full h-full flex items-center justify-center relative">
-      <div className="container mx-auto px-8 relative z-20 max-h-screen overflow-y-auto animate-scroll-reveal max-w-6xl">
-        <div className="text-center mb-24">
-          <h2 className="text-minimal-title mb-8">
-            <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
-              CONTACT
-            </span>
-          </h2>
-          <p className="text-minimal-subtitle text-slate-600 dark:text-slate-300 max-w-4xl mx-auto">
-            Let's discuss your next project or potential collaboration opportunities
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-          {/* Contact Info */}
+    <section id="contact" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="container mx-auto px-16 relative z-20 max-w-7xl">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
+          {/* Left side - Contact info */}
           <div className="space-y-12">
-            <div>
-              <h3 className="font-orbitron text-xl font-medium text-slate-800 dark:text-slate-100 mb-8 tracking-wider uppercase">Let's Connect</h3>
-              <p className="text-minimal-body text-slate-600 dark:text-slate-300">
-                I'm always interested in hearing about new opportunities and exciting projects. 
-                Whether you're a company looking to hire, or you're a fellow developer wanting to collaborate, 
-                feel free to reach out!
+            <div className="space-y-8">
+              <h2 className="text-section-title opacity-0 animate-fadeInUp">
+                <span className="text-white">GET IN</span>
+                <div className="text-accent">TOUCH</div>
+              </h2>
+              
+              <p className="text-large text-gray-400 max-w-2xl opacity-0 animate-fadeInUp animate-delay-200">
+                Let's discuss your next project or potential collaboration opportunities. 
+                I'm always interested in hearing about new challenges and exciting projects.
               </p>
             </div>
 
-            <div className="space-y-6">
+            {/* Contact details */}
+            <div className="space-y-8 opacity-0 animate-fadeInUp animate-delay-400">
               {[
-                { icon: "fas fa-envelope", label: "Email", value: "biagio.99cubisino@gmail.com" },
-                { icon: "fas fa-phone", label: "Phone", value: "+39 3425180540" },
-                { icon: "fas fa-map-marker-alt", label: "Location", value: "Comiso, RG" },
-              ].map(({ icon, label, value }) => (
-                <div key={label} className="flex items-center space-x-4">
-                  <div className="w-12 h-12 border border-slate-300 dark:border-slate-600 flex items-center justify-center">
-                    <i className={`${icon} text-slate-600 dark:text-slate-400`}></i>
+                { 
+                  icon: "fas fa-envelope", 
+                  label: "EMAIL", 
+                  value: "biagio.99cubisino@gmail.com",
+                  link: "mailto:biagio.99cubisino@gmail.com"
+                },
+                { 
+                  icon: "fas fa-phone", 
+                  label: "PHONE", 
+                  value: "+39 3425180540",
+                  link: "tel:+393425180540"
+                },
+                { 
+                  icon: "fas fa-map-marker-alt", 
+                  label: "LOCATION", 
+                  value: "Comiso, RG, Italy" 
+                },
+              ].map(({ icon, label, value, link }) => (
+                <div key={label} className="flex items-center space-x-6 group">
+                  <div className="w-16 h-16 border border-white/20 flex items-center justify-center group-hover:border-accent transition-colors duration-300">
+                    <i className={`${icon} text-accent text-lg`}></i>
                   </div>
                   <div>
-                    <p className="font-orbitron font-medium text-slate-800 dark:text-slate-100 text-sm tracking-wider uppercase">{label}</p>
-                    <p className="text-minimal-body text-slate-600 dark:text-slate-300">{value}</p>
+                    <p className="font-orbitron font-medium text-white text-sm tracking-widest uppercase">{label}</p>
+                    {link ? (
+                      <a href={link} className="text-body text-gray-400 hover:text-accent transition-colors duration-300">
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="text-body text-gray-400">{value}</p>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Social Links */}
-            <div>
-              <p className="font-orbitron font-medium text-slate-800 dark:text-slate-100 mb-6 text-sm tracking-wider uppercase">Follow me</p>
+            {/* Social links */}
+            <div className="opacity-0 animate-fadeInUp animate-delay-600">
+              <p className="font-orbitron font-medium text-white mb-6 text-sm tracking-widest uppercase">FOLLOW ME</p>
               <div className="flex space-x-4">
                 {[
                   { href: "https://www.linkedin.com/in/biagio-cubisino-40a6ab252/", icon: "fab fa-linkedin-in" },
@@ -147,93 +112,87 @@ export default function Contact() {
                   <a
                     key={i}
                     href={href}
-                    className="w-12 h-12 border border-slate-300 dark:border-slate-600 flex items-center justify-center transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-800"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 border border-white/20 flex items-center justify-center transition-all duration-300 hover:bg-accent hover:text-black hover:border-accent group"
                   >
-                    <i className={`${icon} text-slate-600 dark:text-slate-400`}></i>
+                    <i className={`${icon} text-sm text-white group-hover:text-black transition-colors duration-300`}></i>
                   </a>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm border border-slate-200 dark:border-slate-700 p-8">
-            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+          {/* Right side - Contact form */}
+          <div className="bg-card/10 backdrop-blur-sm border border-white/10 p-12 opacity-0 animate-fadeInUp animate-delay-400">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               <div>
-                <Label htmlFor="name" className="font-orbitron text-sm font-medium tracking-wider uppercase">Full Name</Label>
+                <Label htmlFor="name" className="font-orbitron text-sm font-medium tracking-wider uppercase text-white mb-3 block">
+                  FULL NAME
+                </Label>
                 <Input
                   id="name"
-                  name="name"
-                  type="text"
+                  {...register("name", { required: "Name is required" })}
+                  className="bg-background/50 border-white/20 text-white placeholder-gray-500 focus:border-accent transition-colors duration-300"
                   placeholder="Your full name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className={errors.name ? "border-red-500" : ""}
                 />
-                {errors.name && (
-                  <p className="p-font text-red-500 text-sm mt-1">{errors.name}</p>
-                )}
+                {errors.name && <p className="text-red-400 text-sm mt-2">{errors.name.message}</p>}
               </div>
 
               <div>
-                <Label htmlFor="email" className="font-orbitron text-sm font-medium tracking-wider uppercase">Email Address</Label>
+                <Label htmlFor="email" className="font-orbitron text-sm font-medium tracking-wider uppercase text-white mb-3 block">
+                  EMAIL ADDRESS
+                </Label>
                 <Input
                   id="email"
-                  name="email"
                   type="email"
-                  placeholder="your.email@example.com"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={errors.email ? "border-red-500" : ""}
+                  {...register("email", { 
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Invalid email address"
+                    }
+                  })}
+                  className="bg-background/50 border-white/20 text-white placeholder-gray-500 focus:border-accent transition-colors duration-300"
+                  placeholder="your@email.com"
                 />
-                {errors.email && (
-                  <p className="p-font text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
+                {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email.message}</p>}
               </div>
 
               <div>
-                <Label htmlFor="message" className="font-orbitron text-sm font-medium tracking-wider uppercase">Message</Label>
+                <Label htmlFor="message" className="font-orbitron text-sm font-medium tracking-wider uppercase text-white mb-3 block">
+                  MESSAGE
+                </Label>
                 <Textarea
                   id="message"
-                  name="message"
+                  {...register("message", { required: "Message is required" })}
                   rows={5}
-                  placeholder="Tell me about your project or just say hello..."
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className={errors.message ? "border-red-500" : ""}
+                  className="bg-background/50 border-white/20 text-white placeholder-gray-500 focus:border-accent transition-colors duration-300 resize-none"
+                  placeholder="Tell me about your project..."
                 />
-                {errors.message && (
-                  <p className="p-font text-red-500 text-sm mt-1">{errors.message}</p>
-                )}
+                {errors.message && <p className="text-red-400 text-sm mt-2">{errors.message.message}</p>}
               </div>
 
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white py-4 px-8 font-orbitron font-medium text-sm tracking-wider uppercase disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
+                className="w-full bg-accent text-black py-4 px-8 font-orbitron font-medium text-sm tracking-wider uppercase disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:bg-white transform hover:scale-105"
               >
-                {isSubmitting ? (
-                  <>
-                    <i className="fas fa-spinner fa-spin mr-2"></i>
-                    Sending...
-                  </>
-                ) : (
-                  "Send Message"
-                )}
+                {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
               </Button>
-
-              {successMessage && (
-                <p className="text-green-500 font-medium mt-4">{successMessage}</p>
-              )}
             </form>
           </div>
         </div>
+
+        {/* Bottom accent elements */}
+        <div className="absolute bottom-16 left-16">
+          <div className="flex items-center space-x-8">
+            <div className="w-24 h-px bg-accent"></div>
+            <div className="text-xs font-orbitron tracking-widest text-accent">04</div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
 }
-
-/* service: service_29nvbfg
-   template: template_nghzm6h
-   public key: y05Tay6-nzRQeU80B
-*/

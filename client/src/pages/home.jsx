@@ -26,41 +26,34 @@ export default function Home() {
   });
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950" style={{cursor: 'default'}}>
-      {/* Minimal cosmic background */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Subtle background elements */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 gradient-cosmic opacity-10 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 gradient-sunset opacity-10 blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 gradient-ocean opacity-8 blur-3xl animate-pulse" style={{ animationDelay: "4s" }}></div>
-      </div>
+    <div className="relative overflow-hidden bg-background" style={{cursor: 'default'}}>
+      {/* Ultra minimal background */}
+      <div className="absolute inset-0 bg-background"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-slate-800 dark:text-slate-100">
+      <div className="relative z-10 text-foreground">
         <Navbar />
         
-        {/* Clean full-page scrolling sections */}
+        {/* Impactful full-screen scrolling sections */}
         <div className="scroll-section relative">
-          <div className="absolute top-8 left-8 section-number">01</div>
+          <div className="absolute top-12 left-12 section-number z-20">01</div>
           <Hero />
         </div>
         
         <div className="scroll-section relative">
-          <div className="absolute top-8 left-8 section-number">02</div>
+          <div className="absolute top-12 left-12 section-number z-20">02</div>
           <About />
         </div>
         
         <div className="scroll-section relative">
-          <div className="absolute top-8 left-8 section-number">03</div>
+          <div className="absolute top-12 left-12 section-number z-20">03</div>
           <Projects />
         </div>
         
         <div className="scroll-section relative">
-          <div className="absolute top-8 left-8 section-number">04</div>
+          <div className="absolute top-12 left-12 section-number z-20">04</div>
           <Contact />
         </div>
-        
-        <Footer />
       </div>
     </div>
   );
