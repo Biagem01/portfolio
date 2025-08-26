@@ -466,13 +466,11 @@
   animation-fill-mode: forwards;
 }
 
-/* Reset animazioni quando escono dalla vista */
-.scroll-reveal:not(.revealed) {
-  opacity: 0.3;
-  transform: translateY(30px);
+/* Hero sempre visibile - content sempre a opacity 1 */
+#home * {
+  opacity: 1 !important;
 }
 
-/* Hero sempre visibile */
 #home {
   min-height: 100vh !important;
   position: relative;
@@ -480,6 +478,12 @@
 
 #home .section-content {
   min-height: 100vh !important;
+}
+
+/* Reset animazioni quando escono dalla vista - non per hero */
+.scroll-reveal:not(.revealed):not(#home *) {
+  opacity: 0.3;
+  transform: translateY(30px);
 }
 
 @keyframes bounceInUp {
