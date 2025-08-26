@@ -10,8 +10,9 @@ export default function Hero() {
   };
 
   return (
-    <div id="home" className="section-content">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[85vh] py-8">
+    <div id="home" className="section-content min-h-screen flex items-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full py-8 relative z-10">
         
         {/* Left side - Main content */}
         <div className="lg:col-span-8 space-y-8">

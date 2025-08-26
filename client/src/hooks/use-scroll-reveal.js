@@ -16,8 +16,13 @@ export function useScrollReveal() {
             entry.target.style.opacity = '1';
             entry.target.style.animation = `bounceInUp 1s ease-out forwards`;
           }
-          // Optional: unobserve after revealing
-          // observer.unobserve(entry.target);
+          // NON rimuovere l'observer per permettere animazioni ripetute
+        } else {
+          // Quando esce dalla vista, rimuovi la classe per permettere nuove animazioni
+          entry.target.classList.remove('revealed');
+          if (entry.target.closest('#projects') || entry.target.getAttribute('data-testid')?.includes('project-card')) {
+            entry.target.style.animation = '';
+          }
         }
       });
     }, observerOptions);

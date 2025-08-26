@@ -21,7 +21,7 @@ export default function Home() {
       {/* Sezioni principali - spacing ottimizzato */}
       <main>
         {/* Hero */}
-        <section id="home" className="min-h-screen flex items-center">
+        <section id="home" className="relative">
           <Hero />
         </section>
 
