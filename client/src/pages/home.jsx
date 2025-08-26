@@ -22,43 +22,27 @@ export default function Home() {
           <Navbar />
         </div>
 
-        {/* Sezioni principali */}
-        <main className="relative z-10">
+        {/* Sezioni principali - simplified layout */}
+        <main>
 
           {/* Hero */}
-          <section className="scroll-section relative min-h-screen flex flex-col justify-center overflow-visible">
-            <div className="section-number animate-slide-in-left delay-100">01</div>
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent z-0"></div>
-            <div className="relative z-10">
-              <Hero />
-            </div>
+          <section id="home" className="py-20">
+            <Hero />
           </section>
 
           {/* About */}
-          <section className="scroll-section relative min-h-screen flex flex-col justify-center overflow-visible">
-            <div className="section-number animate-slide-in-right delay-100">02</div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/5 to-transparent z-0"></div>
-            <div className="relative z-10">
-              <About />
-            </div>
+          <section id="about" className="py-20">
+            <About />
           </section>
 
           {/* Projects */}
-          <section className="scroll-section relative min-h-screen flex flex-col justify-center overflow-visible">
-            <div className="section-number animate-slide-in-left delay-100">03</div>
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent z-0"></div>
-            <div className="relative z-10">
-              <Projects />
-            </div>
+          <section id="projects" className="py-20">
+            <Projects />
           </section>
 
           {/* Contact */}
-          <section className="scroll-section relative min-h-screen flex flex-col justify-center overflow-visible">
-            <div className="section-number animate-slide-in-right delay-100">04</div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-cyan-500/5 to-transparent z-0"></div>
-            <div className="relative z-10">
-              <Contact />
-            </div>
+          <section id="contact" className="py-20">
+            <Contact />
           </section>
 
         </main>
