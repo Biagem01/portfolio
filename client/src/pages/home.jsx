@@ -34,24 +34,24 @@ export default function Home() {
       <div className="relative z-10 text-foreground">
         <Navbar />
         
-        {/* Impactful full-screen scrolling sections */}
-        <div className="scroll-section relative">
-          <div className="absolute top-12 left-12 section-number z-20">01</div>
+        {/* Clean full-screen scrolling sections */}
+        <div className="scroll-section">
+          <div className="section-number">01</div>
           <Hero />
         </div>
         
-        <div className="scroll-section relative">
-          <div className="absolute top-12 left-12 section-number z-20">02</div>
+        <div className="scroll-section">
+          <div className="section-number">02</div>
           <About />
         </div>
         
-        <div className="scroll-section relative">
-          <div className="absolute top-12 left-12 section-number z-20">03</div>
+        <div className="scroll-section">
+          <div className="section-number">03</div>
           <Projects />
         </div>
         
-        <div className="scroll-section relative">
-          <div className="absolute top-12 left-12 section-number z-20">04</div>
+        <div className="scroll-section">
+          <div className="section-number">04</div>
           <Contact />
         </div>
       </div>

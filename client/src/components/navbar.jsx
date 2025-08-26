@@ -69,8 +69,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} bg-background/90 backdrop-blur-sm`}>
-      <div className="container mx-auto px-16 py-6">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} bg-background/95 backdrop-blur-sm border-b border-white/10`}>
+      <div className="container mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
@@ -82,18 +82,18 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`group flex items-center space-x-3 font-orbitron font-medium text-sm tracking-wider transition-all duration-300 ${
+                className={`group flex items-center space-x-2 font-orbitron font-medium text-xs tracking-wider transition-all duration-300 ${
                   activeSection === item.id
                     ? "text-accent"
-                    : "text-white/60 hover:text-accent"
+                    : "text-white/60 hover:text-white"
                 }`}
               >
-                <span className="text-xs opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-xs opacity-40">
                   {item.number}
                 </span>
                 <span className="uppercase">
