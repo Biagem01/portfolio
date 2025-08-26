@@ -16,23 +16,36 @@ const SkillCategory = ({ category, items, delay }) => {
   }, [delay]);
 
   return (
-    <div className="relative overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10 p-6 rounded-xl group hover-scale hover-glow hover-pulse scroll-reveal animate-stagger-in">
-      <div className="absolute inset-0 dynamic-gradient opacity-10 z-0"></div>
-      <h4 className="font-orbitron text-lg font-bold text-accent tracking-wider uppercase relative z-10 animate-shimmer">
-        {category}
+    <div className="relative overflow-hidden bg-gradient-to-br from-gray-900/80 to-black/90 backdrop-blur-lg border-2 border-accent/20 p-8 rounded-2xl group hover-scale hover-glow transition-all duration-700 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-green-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+      
+      {/* Effetto particelle decorativo */}
+      <div className="absolute top-2 right-2 w-8 h-8 border border-accent/30 rotate-45 opacity-20 group-hover:opacity-60 group-hover:rotate-180 transition-all duration-700"></div>
+      <div className="absolute bottom-2 left-2 w-6 h-6 border border-green-400/30 rotate-12 opacity-20 group-hover:opacity-40 group-hover:-rotate-12 transition-all duration-700"></div>
+      
+      <h4 className="font-orbitron text-xl font-black text-accent tracking-widest uppercase relative z-10 mb-6 group-hover:text-green-400 transition-colors duration-500">
+        <span className="relative">
+          {category}
+          <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-green-400 group-hover:w-full transition-all duration-500"></div>
+        </span>
       </h4>
-      <div className="space-y-2 mt-4 relative z-10">
+      
+      <div className="space-y-3 relative z-10">
         {items.map((skill, i) => (
           <div
             key={skill}
-            className="text-white/80 text-lg font-cinzel transition-all duration-500 hover:text-accent hover:translate-x-2 cursor-pointer magnetic"
+            className="flex items-center text-white/90 text-lg font-cinzel transition-all duration-500 hover:text-accent hover:translate-x-4 cursor-pointer group/skill"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-20px)",
               transition: `all 0.5s ease ${i * 0.1}s`,
             }}
           >
-            → {skill}
+            <div className="w-2 h-2 bg-accent mr-3 rounded-full transition-all duration-300 group-hover/skill:bg-green-400 group-hover/skill:shadow-lg group-hover/skill:shadow-green-400/50"></div>
+            <span className="relative">
+              {skill}
+              <div className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-accent group-hover/skill:w-full transition-all duration-300"></div>
+            </span>
           </div>
         ))}
       </div>
@@ -76,11 +89,13 @@ export default function About() {
         {/* Right side - Skills */}
         <div className="lg:col-span-5 space-y-8">
           <div className="scroll-reveal animate-slide-in-right delay-400">
-            <h3 className="text-2xl font-orbitron font-medium text-white tracking-wider uppercase mb-8 hover-shake">
-              Technical Skills
+            <h3 className="text-3xl font-orbitron font-black text-white tracking-widest uppercase mb-10 hover-shake">
+              <span className="bg-gradient-to-r from-accent to-green-400 bg-clip-text text-transparent">
+                Technical Skills
+              </span>
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {Object.entries(skills).map(([category, items], idx) => (
                 <SkillCategory
                   key={category}

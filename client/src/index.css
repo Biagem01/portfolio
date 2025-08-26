@@ -434,6 +434,16 @@
   opacity: 1 !important;
 }
 
+/* Assicuriamo visibilità progetti */
+#projects .group {
+  opacity: 1 !important;
+}
+
+/* Card progetti sempre visibili */
+[data-testid^="project-card"] {
+  opacity: 1 !important;
+}
+
 /* Effetti dinamici avanzati */
 .hover-pulse:hover {
   animation: pulse 2s infinite;
