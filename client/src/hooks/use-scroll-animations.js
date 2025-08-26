@@ -3,52 +3,88 @@ import { useEffect } from 'react';
 export const useScrollAnimations = () => {
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const element = entry.target;
           
-          // Add stagger delay based on index
-          setTimeout(() => {
-            element.classList.add('animate');
-            
-            // Add specific animation class based on data attribute
-            const animationType = element.dataset.animation;
-            if (animationType) {
-              element.classList.add(animationType);
-            }
-          }, index * 100); // 100ms delay between each element
+          // Trigger animation immediately when visible
+          element.classList.add('animate');
+          
+          // Add specific animation class based on data attribute
+          const animationType = element.dataset.animation;
+          if (animationType) {
+            element.classList.add(animationType);
+          }
+          
+          // Stop observing once animated
+          observer.unobserve(element);
         }
       });
     }, observerOptions);
 
-    // Observe all scroll-reveal elements
+    // Enhanced scroll reveal with stagger support
     const scrollElements = document.querySelectorAll('.scroll-reveal');
-    scrollElements.forEach((el) => observer.observe(el));
+    scrollElements.forEach((el, index) => {
+      observer.observe(el);
+      
+      // Add stagger delays for projects
+      if (el.classList.contains('project-delay-1')) {
+        el.style.animationDelay = '0.2s';
+      } else if (el.classList.contains('project-delay-2')) {
+        el.style.animationDelay = '0.4s';
+      } else if (el.classList.contains('project-delay-3')) {
+        el.style.animationDelay = '0.6s';
+      } else if (el.classList.contains('project-delay-4')) {
+        el.style.animationDelay = '0.8s';
+      }
+    });
 
-    // Magnetic effect for buttons
+    // Enhanced magnetic effect
     const magneticElements = document.querySelectorAll('.magnetic');
     
     magneticElements.forEach(element => {
       element.addEventListener('mousemove', (e) => {
         const rect = element.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
         
-        element.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        element.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
       });
       
       element.addEventListener('mouseleave', () => {
-        element.style.transform = 'translate(0px, 0px)';
+        element.style.transform = 'translate(0px, 0px) scale(1)';
       });
     });
 
+    // Add bounce effect on scroll
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const parallaxElements = document.querySelectorAll('.animate-float');
+          
+          parallaxElements.forEach((element) => {
+            const speed = 0.5;
+            element.style.transform = `translateY(${scrolled * speed}px)`;
+          });
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
       observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
       magneticElements.forEach(element => {
         element.removeEventListener('mousemove', () => {});
         element.removeEventListener('mouseleave', () => {});
