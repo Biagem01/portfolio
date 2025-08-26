@@ -11,6 +11,11 @@ export function useScrollReveal() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
+          // Attiva animazioni per i progetti
+          if (entry.target.closest('#projects') || entry.target.getAttribute('data-testid')?.includes('project-card')) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = `bounceInUp 1s ease-out forwards`;
+          }
           // Optional: unobserve after revealing
           // observer.unobserve(entry.target);
         }

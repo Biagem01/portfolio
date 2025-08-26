@@ -52,16 +52,16 @@ export default function Projects() {
     <div id="projects" className="section-content">
       <div className="space-y-12 py-8">
         
-        {/* Header con titolo principale */}
+        {/* Header con titolo principale sempre visibile */}
         <div className="text-center mb-12">
-          <div className="scroll-reveal animate-slide-in-up mb-4">
+          <div className="mb-4">
             <span className="font-orbitron text-sm text-accent tracking-[0.3em] uppercase">Portfolio</span>
           </div>
-          <h2 className="text-section-title scroll-reveal animate-bounce-in-left delay-200">
+          <h2 className="text-section-title">
             <span className="text-white glitch-text" data-text="MY">MY</span>
             <div className="text-accent -mt-2 gradient-text animate-shimmer">PROJECTS</div>
           </h2>
-          <div className="scroll-reveal animate-bounce-in-right delay-400 mt-6">
+          <div className="mt-6">
             <p className="text-xl text-white/90 font-cinzel leading-relaxed hover:text-white transition-colors duration-500 max-w-2xl mx-auto">
               Una vetrina di progetti che dimostrano le mie competenze tecniche e la passione per creare esperienze digitali eccezionali.
             </p>
