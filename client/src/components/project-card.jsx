@@ -56,7 +56,7 @@ const ProjectCard = ({ project, index }) => {
           </div>
 
           {/* Description */}
-          <p className="text-gray-300 leading-relaxed font-cinzel text-base group-hover:text-gray-200 transition-colors duration-500">
+          <p className="text-white/80 leading-relaxed font-cinzel text-base group-hover:text-white transition-colors duration-500">
             {project.description}
           </p>
 
@@ -69,7 +69,7 @@ const ProjectCard = ({ project, index }) => {
               {project.technologies.map((tech, techIndex) => (
                 <span
                   key={tech}
-                  className="bg-black/40 border border-gray-700 text-gray-400 px-3 py-1 text-sm font-orbitron tracking-wide transition-all duration-300 hover:bg-accent/20 hover:border-accent hover:text-accent cursor-pointer"
+                  className="bg-black/40 border border-white/30 text-white/70 px-3 py-1 text-sm font-orbitron tracking-wide transition-all duration-300 hover:bg-accent/20 hover:border-accent hover:text-accent cursor-pointer"
                 >
                   {tech}
                 </span>

@@ -25,7 +25,7 @@ const SkillCategory = ({ category, items, delay }) => {
         {items.map((skill, i) => (
           <div
             key={skill}
-            className="text-gray-300 text-lg font-cinzel transition-all duration-500 hover:text-accent hover:translate-x-2 cursor-pointer magnetic"
+            className="text-white/80 text-lg font-cinzel transition-all duration-500 hover:text-accent hover:translate-x-2 cursor-pointer magnetic"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-20px)",
@@ -53,7 +53,7 @@ export default function About() {
               <div className="text-accent -mt-2 gradient-text">SONO</div>
             </h2>
 
-            <div className="text-xl text-gray-300 space-y-6 font-cinzel leading-relaxed">
+            <div className="text-xl text-white/90 space-y-6 font-cinzel leading-relaxed">
               <p className="scroll-reveal animate-slide-in-up delay-100 hover:text-white transition-colors duration-300">
                 Sono uno studente di informatica e sviluppatore web in crescita, appassionato nel creare 
                 applicazioni moderne e intuitive che risolvono problemi reali.

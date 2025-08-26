@@ -52,7 +52,7 @@ export default function Contact() {
               <div className="text-accent -mt-2 gradient-text">INSIEME</div>
             </h2>
             
-            <p className="text-xl text-gray-300 max-w-lg font-cinzel scroll-reveal animate-slide-in-up delay-100 leading-relaxed">
+            <p className="text-xl text-white/90 max-w-lg font-cinzel scroll-reveal animate-slide-in-up delay-100 leading-relaxed">
               Hai un progetto in mente? Parliamo di come possiamo dare vita alle tue idee 
               con tecnologie web moderne.
             </p>

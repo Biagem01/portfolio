@@ -62,7 +62,7 @@ export default function Projects() {
           </div>
           
           <div className="lg:col-span-4 scroll-reveal animate-bounce-in-right delay-200">
-            <p className="text-2xl text-gray-200 font-cinzel leading-relaxed hover:text-white transition-colors duration-500">
+            <p className="text-2xl text-white/90 font-cinzel leading-relaxed hover:text-white transition-colors duration-500">
               Una vetrina di progetti che dimostrano le mie competenze tecniche e la passione per creare esperienze digitali eccezionali.
             </p>
           </div>

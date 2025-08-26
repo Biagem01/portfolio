@@ -1,37 +1,25 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
 const ThemeProviderContext = createContext({
-  theme: "light",
+  theme: "dark",
   setTheme: () => null,
 })
 
 export function ThemeProvider({
   children,
-  defaultTheme = "light",
+  defaultTheme = "dark",
   storageKey = "portfolio-theme",
   ...props
 }) {
   const [theme, setTheme] = useState(
-    () => localStorage.getItem(storageKey) || defaultTheme
+    () => "dark"
   )
 
   useEffect(() => {
     const root = window.document.documentElement
-
-    root.classList.remove("light", "dark")
-
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light"
-
-      root.classList.add(systemTheme)
-      return
-    }
-
-    root.classList.add(theme)
-  }, [theme])
+    root.classList.remove("light")
+    root.classList.add("dark")
+  }, [])
 
   const value = {
     theme,

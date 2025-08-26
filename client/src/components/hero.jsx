@@ -69,13 +69,13 @@ export default function Hero() {
             </div>
             
             <div className="space-y-4 text-center relative z-10">
-              <div className="text-lg text-gray-300 font-cinzel hover:text-accent transition-colors duration-300 cursor-pointer">
+              <div className="text-lg text-white/90 font-cinzel hover:text-accent transition-colors duration-300 cursor-pointer">
                 biagio.99cubisino@gmail.com
               </div>
-              <div className="text-lg text-gray-300 font-cinzel hover:text-accent transition-colors duration-300 cursor-pointer">
+              <div className="text-lg text-white/90 font-cinzel hover:text-accent transition-colors duration-300 cursor-pointer">
                 +39 3425180540
               </div>
-              <div className="text-body text-gray-400 font-cinzel">
+              <div className="text-body text-white/60 font-cinzel">
                 Comiso, RG - Italy
               </div>
             </div>
