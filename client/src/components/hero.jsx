@@ -16,26 +16,26 @@ export default function Hero() {
         {/* Left side - Main content */}
         <div className="lg:col-span-8 space-y-8">
           <div className="space-y-6">
-            <div className="text-hero-sub text-accent">
+            <div className="text-hero-sub text-accent animate-slide-in-up scroll-reveal">
               CREATIVE DEVELOPER
             </div>
             
-            <h1 className="text-hero relative">
-              <div className="text-white glitch-text" data-text="BIAGIO">
+            <h1 className="text-hero relative scroll-reveal animate-bounce-in-left delay-200">
+              <div className="text-white glitch-text animate-shimmer" data-text="BIAGIO">
                 BIAGIO
               </div>
-              <div className="text-accent -mt-4 gradient-text">
+              <div className="text-accent -mt-4 gradient-text animate-shimmer">
                 CUBISINO
               </div>
             </h1>
             
-            <p className="text-large text-gray-300 max-w-2xl leading-relaxed">
+            <p className="text-large text-gray-300 max-w-2xl leading-relaxed scroll-reveal animate-slide-in-up delay-400">
               Trasformo idee creative in esperienze digitali straordinarie. Specializzato nella creazione di 
               applicazioni web moderne e coinvolgenti.
             </p>
           </div>
 
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-6 items-center scroll-reveal animate-bounce-in-up delay-600">
             <button
               onClick={() => scrollToSection("projects")}
               className="bg-green-500 text-black px-10 py-4 font-orbitron font-black text-base tracking-wider uppercase hover:bg-green-400 hover:scale-110 transition-all duration-500 hover-lift hover-glow magnetic animate-shimmer relative overflow-hidden border-2 border-green-500 hover:border-green-400"
@@ -55,7 +55,7 @@ export default function Hero() {
 
         {/* Right side - Contact info */}
         <div className="lg:col-span-4 space-y-8">
-          <div className="border-2 border-white/30 p-8 space-y-6 hover-scale hover-glow bg-black/20 backdrop-blur-sm relative overflow-hidden">
+          <div className="border-2 border-white/30 p-8 space-y-6 hover-scale hover-glow bg-black/20 backdrop-blur-sm relative overflow-hidden scroll-reveal animate-bounce-in-right delay-800">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent"></div>
             
             <div className="text-center relative z-10">

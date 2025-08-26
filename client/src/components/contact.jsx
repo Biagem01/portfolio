@@ -47,9 +47,12 @@ export default function Contact() {
         {/* Left side - Contact info */}
         <div className="lg:col-span-6 space-y-12">
           <div className="space-y-6">
-            <h2 className="text-section-title scroll-reveal animate-slide-in-left">
-              <span className="text-white">INIZIAMO</span>
-              <div className="text-accent -mt-2 gradient-text">INSIEME</div>
+            <div className="scroll-reveal animate-slide-in-up mb-4">
+              <span className="font-orbitron text-sm text-accent tracking-[0.3em] uppercase">Get In Touch</span>
+            </div>
+            <h2 className="text-section-title scroll-reveal animate-slide-in-left delay-200">
+              <span className="text-white glitch-text" data-text="LET'S">LET'S</span>
+              <div className="text-accent -mt-2 gradient-text animate-shimmer">CONNECT</div>
             </h2>
             
             <p className="text-xl text-white/90 max-w-lg font-cinzel scroll-reveal animate-slide-in-up delay-100 leading-relaxed">

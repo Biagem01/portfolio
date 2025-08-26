@@ -16,8 +16,8 @@ const SkillCategory = ({ category, items, delay }) => {
   }, [delay]);
 
   return (
-    <div className="relative overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10 p-6 rounded-xl group hover-scale hover-glow scroll-reveal animate-stagger-in">
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent z-0"></div>
+    <div className="relative overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10 p-6 rounded-xl group hover-scale hover-glow hover-pulse scroll-reveal animate-stagger-in">
+      <div className="absolute inset-0 dynamic-gradient opacity-10 z-0"></div>
       <h4 className="font-orbitron text-lg font-bold text-accent tracking-wider uppercase relative z-10 animate-shimmer">
         {category}
       </h4>
@@ -48,9 +48,12 @@ export default function About() {
         {/* Left side - About text */}
         <div className="lg:col-span-7 space-y-8">
           <div className="space-y-6">
-            <h2 className="text-section-title scroll-reveal animate-slide-in-left">
-              <span className="text-white">CHI</span>
-              <div className="text-accent -mt-2 gradient-text">SONO</div>
+            <div className="scroll-reveal animate-slide-in-up mb-4">
+              <span className="font-orbitron text-sm text-accent tracking-[0.3em] uppercase">Discover</span>
+            </div>
+            <h2 className="text-section-title scroll-reveal animate-slide-in-left delay-200">
+              <span className="text-white glitch-text" data-text="ABOUT">ABOUT</span>
+              <div className="text-accent -mt-2 gradient-text animate-shimmer">ME</div>
             </h2>
 
             <div className="text-xl text-white/90 space-y-6 font-cinzel leading-relaxed">
@@ -72,8 +75,8 @@ export default function About() {
 
         {/* Right side - Skills */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="scroll-reveal animate-slide-in-right delay-200">
-            <h3 className="text-2xl font-orbitron font-medium text-white tracking-wider uppercase mb-8">
+          <div className="scroll-reveal animate-slide-in-right delay-400">
+            <h3 className="text-2xl font-orbitron font-medium text-white tracking-wider uppercase mb-8 hover-shake">
               Technical Skills
             </h3>
 

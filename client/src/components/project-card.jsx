@@ -3,16 +3,16 @@ const ProjectCard = ({ project, index }) => {
   
   return (
     <div 
-      className="group relative"
+      className="group scroll-reveal animate-bounce-in-up relative opacity-0"
       data-testid={`project-card-${index + 1}`}
       style={{ 
-        animationDelay: `${index * 0.2}s`,
+        animationDelay: `${index * 0.3}s`,
         animationFillMode: 'forwards',
         willChange: 'transform, opacity'
       }}
     >
       {/* Card principale ottimizzata */}
-      <div className="relative bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-sm border border-white/20 overflow-hidden hover-lift hover-glow transition-all duration-700 hover:border-accent/50 w-full max-w-none">
+      <div className="relative bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-sm border border-white/20 overflow-hidden hover-lift hover-glow hover-pulse transition-all duration-700 hover:border-accent/50 w-full max-w-none">
         
         {/* Header con immagine */}
         <div className="relative h-56 overflow-hidden">
@@ -38,8 +38,8 @@ const ProjectCard = ({ project, index }) => {
             {project.year}
           </div>
           
-          {/* Overlay con gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          {/* Overlay con gradient dinamico */}
+          <div className="absolute inset-0 dynamic-gradient opacity-0 group-hover:opacity-30 transition-opacity duration-700"></div>
         </div>
 
         {/* Content */}

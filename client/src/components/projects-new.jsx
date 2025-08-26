@@ -52,17 +52,17 @@ export default function Projects() {
     <div id="projects" className="section-content">
       <div className="space-y-12 py-8">
         
-        {/* Header ottimizzato */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-          <div className="lg:col-span-8">
-            <h2 className="text-section-title scroll-reveal animate-bounce-in-left">
-              <span className="text-white glitch-text" data-text="I MIEI">I MIEI</span>
-              <div className="text-accent -mt-2 gradient-text animate-shimmer">PROGETTI</div>
-            </h2>
+        {/* Header con titolo principale */}
+        <div className="text-center mb-12">
+          <div className="scroll-reveal animate-slide-in-up mb-4">
+            <span className="font-orbitron text-sm text-accent tracking-[0.3em] uppercase">Portfolio</span>
           </div>
-          
-          <div className="lg:col-span-4 scroll-reveal animate-bounce-in-right delay-200">
-            <p className="text-xl text-white/90 font-cinzel leading-relaxed hover:text-white transition-colors duration-500">
+          <h2 className="text-section-title scroll-reveal animate-bounce-in-left delay-200">
+            <span className="text-white glitch-text" data-text="MY">MY</span>
+            <div className="text-accent -mt-2 gradient-text animate-shimmer">PROJECTS</div>
+          </h2>
+          <div className="scroll-reveal animate-bounce-in-right delay-400 mt-6">
+            <p className="text-xl text-white/90 font-cinzel leading-relaxed hover:text-white transition-colors duration-500 max-w-2xl mx-auto">
               Una vetrina di progetti che dimostrano le mie competenze tecniche e la passione per creare esperienze digitali eccezionali.
             </p>
           </div>
@@ -77,8 +77,8 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Esplora lavori - bottone prominente e visibile */}
-        <div className="flex justify-center mt-12 mb-8">
+        {/* Esplora lavori - bottone dinamico */}
+        <div className="text-center scroll-reveal animate-elastic-in delay-800 mt-16">
           <button
             onClick={() => {
               const element = document.getElementById('contact');
@@ -86,10 +86,12 @@ export default function Projects() {
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            className="bg-accent text-black px-8 py-4 text-lg font-orbitron font-black tracking-wider uppercase hover:bg-accent/90 hover:scale-105 transition-all duration-300 relative z-20"
+            className="group bg-gradient-to-r from-accent to-green-400 text-black px-10 py-5 text-lg font-orbitron font-black tracking-wider uppercase hover:from-green-400 hover:to-accent hover:scale-110 transition-all duration-500 relative overflow-hidden border-2 border-accent hover:border-green-400 hover-lift hover-glow magnetic animate-shimmer"
             data-testid="button-explore-works"
           >
-            ESPLORA LAVORI
+            <span className="relative z-10 group-hover:text-black transition-colors duration-300">ESPLORA LAVORI</span>
+            <span className="relative z-10 ml-2 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-500 text-xl">→</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           </button>
         </div>
       </div>
