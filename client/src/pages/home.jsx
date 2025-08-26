@@ -4,7 +4,7 @@ import About from "@/components/about.jsx";
 import Projects from "@/components/projects-new.jsx";
 import Contact from "@/components/contact.jsx";
 import Footer from "@/components/footer.jsx";
-import LoadingScreen from "@/components/loading-screen.jsx";
+// import LoadingScreen from "@/components/loading-screen.jsx"; // Disabled - causing conflicts
 import { useScrollReveal } from "../hooks/use-scroll-reveal.js";
 import { useScrollAnimations } from "../hooks/use-scroll-animations.js";
 
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <LoadingScreen />
+      {/* <LoadingScreen /> - Disabled to prevent overlay conflicts */}
 
       <div className="relative bg-background" style={{ cursor: 'default' }}>
         {/* Navbar */}
