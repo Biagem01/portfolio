@@ -1,56 +1,55 @@
 import { useState, useEffect } from 'react';
 
 export default function LoadingScreen() {
-  const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
-
+  const [isComplete, setIsComplete] = useState(false);
+  
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
-          setTimeout(() => setIsVisible(false), 500);
+          clearInterval(timer);
+          setTimeout(() => setIsComplete(true), 500);
           return 100;
         }
-        return prev + Math.random() * 15 + 5;
+        return prev + Math.random() * 15;
       });
-    }, 200);
+    }, 100);
 
     return () => clearInterval(timer);
   }, []);
 
-  if (!isVisible) return null;
+  if (isComplete) return null;
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 z-[9999] flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center">
       <div className="text-center space-y-8">
-        <div className="relative">
-          <div className="text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
-            BC
+        {/* Logo */}
+        <div className="animate-float">
+          <div className="text-6xl font-orbitron font-bold text-accent mb-4">BC</div>
+          <div className="text-sm font-cinzel tracking-widest text-white/60 uppercase">
+            Portfolio
           </div>
-          <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full blur-xl animate-pulse"></div>
-        </div>
-        
-        <div className="space-y-4">
-          <p className="text-slate-300 text-xl font-medium">Loading Portfolio...</p>
-          
-          <div className="w-80 h-2 bg-slate-800 rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          
-          <p className="text-slate-400 text-sm">{Math.round(progress)}%</p>
         </div>
 
-        <div className="flex justify-center space-x-2">
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className="w-3 h-3 bg-purple-500 rounded-full animate-bounce"
-              style={{ animationDelay: `${i * 0.2}s` }}
-            />
-          ))}
+        {/* Loading dots */}
+        <div className="flex justify-center space-x-2 mb-8">
+          <div className="w-2 h-2 bg-accent rounded-full loading-dot"></div>
+          <div className="w-2 h-2 bg-accent rounded-full loading-dot"></div>
+          <div className="w-2 h-2 bg-accent rounded-full loading-dot"></div>
+        </div>
+
+        {/* Progress bar */}
+        <div className="w-64 h-px bg-white/20 mx-auto relative">
+          <div 
+            className="h-full bg-accent transition-all duration-300 ease-out"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+
+        {/* Loading text */}
+        <div className="text-xs font-orbitron tracking-widest text-white/40 uppercase animate-pulse">
+          Loading Experience
         </div>
       </div>
     </div>

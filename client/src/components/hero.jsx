@@ -19,26 +19,26 @@ export default function Hero() {
         {/* Left side - Main content */}
         <div className="lg:col-span-8 space-y-8">
           <div className="space-y-6">
-            <div className="text-hero-sub text-accent animate-fadeInUp">
+            <div className="text-hero-sub text-accent scroll-reveal animate-slideInLeft">
               CREATIVE DEVELOPER
             </div>
             
-            <h1 className="text-hero animate-fadeInUp animate-delay-100">
-              <div className="text-white">
+            <h1 className="text-hero">
+              <div className="text-white scroll-reveal animate-fadeInUp animate-delay-100">
                 BIAGIO
               </div>
-              <div className="text-accent -mt-4">
+              <div className="text-accent -mt-4 scroll-reveal animate-fadeInUp animate-delay-200">
                 CUBISINO
               </div>
             </h1>
             
-            <p className="text-large text-gray-400 max-w-2xl animate-fadeInUp animate-delay-200">
+            <p className="text-large text-gray-400 max-w-2xl scroll-reveal animate-fadeInUp animate-delay-300">
               Crafting exceptional digital experiences with modern technologies. 
               Focused on creating intuitive and powerful web applications.
             </p>
           </div>
 
-          <div className="flex gap-6 items-center animate-fadeInUp animate-delay-300">
+          <div className="flex gap-6 items-center scroll-reveal animate-slideInLeft animate-delay-400">
             <button
               onClick={() => scrollToSection("projects")}
               className="bg-accent text-black px-8 py-3 font-orbitron font-medium text-sm tracking-wider uppercase hover:bg-white transition-all duration-300 hover-lift"
@@ -56,23 +56,23 @@ export default function Hero() {
         </div>
 
         {/* Right side - Contact info */}
-        <div className="lg:col-span-4 space-y-8 animate-fadeInUp animate-delay-400">
-          <div className="border border-white/20 p-8 space-y-6">
+        <div className="lg:col-span-4 space-y-8">
+          <div className="border border-white/20 p-8 space-y-6 scroll-reveal animate-scaleIn animate-delay-500 hover-scale">
             <div className="text-center">
-              <div className="text-4xl font-orbitron font-bold text-accent mb-2">BC</div>
-              <div className="text-xs font-orbitron tracking-widest text-white/60 uppercase">
+              <div className="text-4xl font-orbitron font-bold text-accent mb-2 animate-float">BC</div>
+              <div className="text-xs font-cinzel tracking-widest text-white/60 uppercase">
                 Full Stack Developer
               </div>
             </div>
             
             <div className="space-y-4 text-center">
-              <div className="text-body text-gray-400">
+              <div className="text-body text-gray-400 font-cinzel">
                 biagio.99cubisino@gmail.com
               </div>
-              <div className="text-body text-gray-400">
+              <div className="text-body text-gray-400 font-cinzel">
                 +39 3425180540
               </div>
-              <div className="text-body text-gray-400">
+              <div className="text-body text-gray-400 font-cinzel">
                 Comiso, RG - Italy
               </div>
             </div>
@@ -102,9 +102,9 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-fadeInUp animate-delay-400">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-reveal animate-fadeInUp animate-delay-600">
         <div 
-          className="flex items-center space-x-3 text-white/40 hover:text-accent transition-all duration-300 cursor-pointer group"
+          className="flex items-center space-x-3 text-white/40 hover:text-accent transition-all duration-300 cursor-pointer group animate-pulse"
           onClick={() => scrollToSection("about")}
         >
           <div className="w-8 h-px bg-current group-hover:w-12 transition-all duration-300"></div>

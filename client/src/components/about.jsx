@@ -18,7 +18,7 @@ const SkillCategory = ({ category, items, delay }) => {
   }, [delay]);
 
   return (
-    <div className={`space-y-3 animate-fadeInUp`} style={{ animationDelay: `${delay * 0.1}s` }}>
+    <div className={`space-y-3 scroll-reveal animate-fadeInUp stagger-delay`}>
       <h4 className="font-orbitron text-sm font-medium text-accent tracking-wider uppercase">
         {category}
       </h4>
@@ -48,21 +48,21 @@ export default function About() {
         {/* Left side - About content */}
         <div className="lg:col-span-7 space-y-8">
           <div className="space-y-6">
-            <h2 className="text-section-title animate-fadeInUp">
+            <h2 className="text-section-title scroll-reveal animate-slideInLeft">
               <span className="text-white">ABOUT</span>
               <div className="text-accent -mt-2">ME</div>
             </h2>
             
-            <div className="text-large text-gray-400 space-y-6 animate-fadeInUp animate-delay-100">
-              <p>
+            <div className="text-large text-gray-400 space-y-6 font-cinzel">
+              <p className="scroll-reveal animate-fadeInUp animate-delay-100">
                 I'm a computer science student and growing web developer, passionate about creating modern, 
                 intuitive applications that solve real-world problems.
               </p>
-              <p>
+              <p className="scroll-reveal animate-fadeInUp animate-delay-200">
                 My focus is on <span className="text-accent">React</span>, <span className="text-accent">Node.js</span>, 
                 and database technologies, always striving to write clean, maintainable code that stands the test of time.
               </p>
-              <p>
+              <p className="scroll-reveal animate-fadeInUp animate-delay-300">
                 When I'm not coding, I love exploring new technologies, contributing to open source projects, 
                 and staying current with industry trends and best practices.
               </p>
@@ -72,7 +72,7 @@ export default function About() {
 
         {/* Right side - Skills */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="animate-fadeInUp animate-delay-200">
+          <div className="scroll-reveal animate-slideInRight animate-delay-200">
             <h3 className="text-large font-orbitron font-medium text-white tracking-wider uppercase mb-8">
               Technical Skills
             </h3>

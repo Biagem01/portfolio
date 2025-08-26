@@ -40,8 +40,7 @@ const projects = [
 const ProjectCard = ({ project, index }) => {
   return (
     <div 
-      className={`group space-y-4 animate-fadeInUp hover-lift`}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      className={`group space-y-4 scroll-reveal animate-scaleIn hover-lift stagger-delay`}
     >
       <div className="relative overflow-hidden bg-gray-900 border border-white/10">
         <img
@@ -67,7 +66,7 @@ const ProjectCard = ({ project, index }) => {
           </div>
         </div>
 
-        <p className="text-body text-gray-400 leading-relaxed">
+        <p className="text-body text-gray-400 leading-relaxed font-cinzel">
           {project.description}
         </p>
 
@@ -109,14 +108,14 @@ export default function Projects() {
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-8">
-            <h2 className="text-section-title animate-fadeInUp">
+            <h2 className="text-section-title scroll-reveal animate-slideInLeft">
               <span className="text-white">SELECTED</span>
               <div className="text-accent -mt-2">WORK</div>
             </h2>
           </div>
           
-          <div className="lg:col-span-4 animate-fadeInUp animate-delay-100">
-            <p className="text-large text-gray-400">
+          <div className="lg:col-span-4 scroll-reveal animate-slideInRight animate-delay-100">
+            <p className="text-large text-gray-400 font-cinzel">
               A showcase of projects that demonstrate my technical skills and passion for creating exceptional digital experiences.
             </p>
           </div>
@@ -130,10 +129,10 @@ export default function Projects() {
         </div>
 
         {/* View All */}
-        <div className="text-center animate-fadeInUp animate-delay-400">
+        <div className="text-center scroll-reveal animate-fadeInUp animate-delay-400">
           <a
             href="/projects"
-            className="inline-flex items-center text-white/60 font-orbitron font-medium text-sm tracking-wider uppercase hover:text-accent transition-colors duration-300 gap-4 group"
+            className="inline-flex items-center text-white/60 font-orbitron font-medium text-sm tracking-wider uppercase hover:text-accent transition-colors duration-300 gap-4 group hover-lift"
           >
             <span>View Archive</span>
             <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>

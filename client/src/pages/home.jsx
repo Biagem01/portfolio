@@ -12,8 +12,10 @@ import Achievements from "@/components/achievements.jsx";
 import EasterEgg from "@/components/easter-egg.jsx";
 import LoadingScreen from "@/components/loading-screen.jsx";
 import ScrollIndicator from "@/components/scroll-indicator.jsx";
+import { useScrollReveal } from "../hooks/use-scroll-reveal.js";
 
 export default function Home() {
+  useScrollReveal();
   const particles = Array.from({ length: 50 }).map(() => {
     const size = Math.floor(Math.random() * 3) + 2; // 2-4rem
     const colors = ["blue", "purple", "cyan", "pink", "green", "indigo"];
@@ -26,6 +28,8 @@ export default function Home() {
   });
 
   return (
+    <>
+    <LoadingScreen />
     <div className="relative overflow-hidden bg-background" style={{cursor: 'default'}}>
       {/* Ultra minimal background */}
       <div className="absolute inset-0 bg-background"></div>
@@ -56,5 +60,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </>
   );
 }

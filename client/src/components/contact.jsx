@@ -47,20 +47,20 @@ export default function Contact() {
         {/* Left side - Contact info */}
         <div className="lg:col-span-6 space-y-12">
           <div className="space-y-6">
-            <h2 className="text-section-title animate-fadeInUp">
+            <h2 className="text-section-title scroll-reveal animate-slideInLeft">
               <span className="text-white">LET'S</span>
               <div className="text-accent -mt-2">WORK</div>
               <div className="text-white -mt-2">TOGETHER</div>
             </h2>
             
-            <p className="text-large text-gray-400 max-w-lg animate-fadeInUp animate-delay-100">
+            <p className="text-large text-gray-400 max-w-lg font-cinzel scroll-reveal animate-fadeInUp animate-delay-100">
               Have a project in mind? Let's discuss how we can bring your ideas to life 
               with modern web technologies.
             </p>
           </div>
 
           {/* Contact methods */}
-          <div className="space-y-6 animate-fadeInUp animate-delay-200">
+          <div className="space-y-6 scroll-reveal animate-fadeInUp animate-delay-200">
             <div className="space-y-4">
               <h3 className="font-orbitron text-sm font-medium text-accent tracking-wider uppercase">
                 Get in touch
@@ -69,17 +69,17 @@ export default function Contact() {
               <div className="space-y-3">
                 <a 
                   href="mailto:biagio.99cubisino@gmail.com"
-                  className="block text-large text-white hover:text-accent transition-colors duration-300"
+                  className="block text-large text-white hover:text-accent transition-colors duration-300 font-cinzel hover-lift"
                 >
                   biagio.99cubisino@gmail.com
                 </a>
                 <a 
                   href="tel:+393425180540"
-                  className="block text-large text-gray-400 hover:text-accent transition-colors duration-300"
+                  className="block text-large text-gray-400 hover:text-accent transition-colors duration-300 font-cinzel hover-lift"
                 >
                   +39 3425180540
                 </a>
-                <div className="text-large text-gray-400">
+                <div className="text-large text-gray-400 font-cinzel">
                   Comiso, RG - Italy
                 </div>
               </div>
@@ -100,7 +100,7 @@ export default function Contact() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-body text-gray-400 hover:text-accent transition-colors duration-300 uppercase tracking-wider"
+                    className="text-body text-gray-400 hover:text-accent transition-colors duration-300 uppercase tracking-wider font-cinzel hover-lift"
                   >
                     {label} →
                   </a>
@@ -112,7 +112,7 @@ export default function Contact() {
 
         {/* Right side - Contact form */}
         <div className="lg:col-span-6">
-          <div className="bg-card/10 border border-white/10 p-8 animate-fadeInUp animate-delay-300">
+          <div className="bg-card/10 border border-white/10 p-8 scroll-reveal animate-slideInRight animate-delay-300 hover-scale">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -123,7 +123,7 @@ export default function Contact() {
                   <Input
                     id="name"
                     {...register("name", { required: "Name is required" })}
-                    className="bg-transparent border-white/20 text-white placeholder-gray-500 focus:border-accent transition-colors duration-300"
+                    className="bg-transparent border-white/20 text-white placeholder-gray-500 focus:border-accent transition-colors duration-300 font-cinzel"
                     placeholder="Your name"
                   />
                   {errors.name && <p className="text-red-400 text-xs mt-2">{errors.name.message}</p>}
