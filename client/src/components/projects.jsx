@@ -42,13 +42,14 @@ const ProjectCard = ({ project, index }) => {
   
   return (
     <div 
-      className={`group space-y-6 scroll-reveal hover-lift magnetic project-delay-${index + 1} ${
-        isEven 
-          ? 'animate-bounce-in-left' 
-          : 'animate-bounce-in-right'
-      }`}
+      className="group space-y-6 scroll-reveal hover-lift magnetic opacity-0"
       data-animation={isEven ? 'animate-bounce-in-left' : 'animate-bounce-in-right'}
-      style={{ animationDelay: `${index * 0.2}s` }}
+      data-testid={`project-card-${index + 1}`}
+      style={{ 
+        animationDelay: `${index * 0.3}s`,
+        animationFillMode: 'forwards',
+        willChange: 'transform, opacity'
+      }}
     >
       <div className="relative overflow-hidden bg-gray-900/50 backdrop-blur-sm border-2 border-white/20 hover-glow hover-scale transition-all duration-700">
         <img
@@ -147,7 +148,7 @@ export default function Projects() {
         {/* Projects Grid con staggered animations */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <ProjectCard key={`project-${index}`} project={project} index={index} />
           ))}
         </div>
 

@@ -12,13 +12,20 @@ export const useScrollAnimations = () => {
         if (entry.isIntersecting) {
           const element = entry.target;
           
-          // Trigger animation immediately when visible
+          console.log('🎬 Animazione attivata per:', element.className);
+          
+          // Remove opacity-0 and trigger animation
+          element.classList.remove('opacity-0');
           element.classList.add('animate');
           
           // Add specific animation class based on data attribute
           const animationType = element.dataset.animation;
           if (animationType) {
+            console.log('🎯 Tipo animazione:', animationType);
             element.classList.add(animationType);
+            // Force the animation to show
+            element.style.opacity = '1';
+            element.style.animationFillMode = 'forwards';
           }
           
           // Stop observing once animated

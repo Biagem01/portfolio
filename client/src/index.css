@@ -411,12 +411,28 @@
 /* Initial hidden state for animations */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px);
+  will-change: transform, opacity;
 }
 
-.scroll-reveal.animate {
-  opacity: 1;
-  transform: translateY(0);
+/* Force visibility when animated */
+.scroll-reveal.animate-bounce-in-left,
+.scroll-reveal.animate-bounce-in-right,
+.scroll-reveal.animate-bounce-in-up,
+.scroll-reveal.animate-elastic-in,
+.scroll-reveal.animate-flip-in,
+.scroll-reveal.animate-slide-in-left,
+.scroll-reveal.animate-slide-in-right,
+.scroll-reveal.animate-slide-in-up,
+.scroll-reveal.animate-stagger-in {
+  opacity: 1 !important;
+}
+
+/* Force animation states */
+.opacity-0.animate-bounce-in-left,
+.opacity-0.animate-bounce-in-right,
+.opacity-0.animate-bounce-in-up {
+  opacity: 1 !important;
+  animation-fill-mode: forwards !important;
 }
 
 /* Magnetic effect for buttons */
