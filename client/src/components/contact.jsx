@@ -47,15 +47,14 @@ export default function Contact() {
         {/* Left side - Contact info */}
         <div className="lg:col-span-6 space-y-12">
           <div className="space-y-6">
-            <h2 className="text-section-title scroll-reveal animate-slideInLeft">
-              <span className="text-white">LET'S</span>
-              <div className="text-accent -mt-2">WORK</div>
-              <div className="text-white -mt-2">TOGETHER</div>
+            <h2 className="text-section-title scroll-reveal animate-slide-in-left">
+              <span className="text-white">INIZIAMO</span>
+              <div className="text-accent -mt-2 gradient-text">INSIEME</div>
             </h2>
             
-            <p className="text-large text-gray-400 max-w-lg font-cinzel scroll-reveal animate-fadeInUp animate-delay-100">
-              Have a project in mind? Let's discuss how we can bring your ideas to life 
-              with modern web technologies.
+            <p className="text-xl text-gray-300 max-w-lg font-cinzel scroll-reveal animate-slide-in-up delay-100 leading-relaxed">
+              Hai un progetto in mente? Parliamo di come possiamo dare vita alle tue idee 
+              con tecnologie web moderne.
             </p>
           </div>
 

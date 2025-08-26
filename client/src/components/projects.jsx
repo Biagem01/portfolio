@@ -38,43 +38,64 @@ const projects = [
 ];
 
 const ProjectCard = ({ project, index }) => {
+  const isEven = index % 2 === 0;
+  
   return (
     <div 
-      className={`group space-y-4 scroll-reveal animate-scaleIn hover-lift stagger-delay`}
+      className={`group space-y-6 scroll-reveal hover-lift magnetic ${
+        isEven 
+          ? 'animate-slide-in-left stagger-' + ((index + 1)) 
+          : 'animate-slide-in-right stagger-' + ((index + 1))
+      }`}
+      data-animation={isEven ? 'animate-slide-in-left' : 'animate-slide-in-right'}
     >
-      <div className="relative overflow-hidden bg-gray-900 border border-white/10">
+      <div className="relative overflow-hidden bg-gray-900 border border-white/10 hover-glow">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-80 object-cover transition-all duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="text-accent text-sm font-orbitron tracking-wider">
-            {project.year}
-          </div>
+        {/* Gradient overlay sempre visibile ma più leggera */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        
+        {/* Effetto shimmer on hover */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+        
+        {/* Year badge sempre visibile */}
+        <div className="absolute top-4 right-4 bg-accent text-black px-3 py-1 text-xs font-orbitron font-bold tracking-wider animate-float">
+          {project.year}
+        </div>
+        
+        {/* Project links on hover */}
+        <div className="absolute bottom-4 left-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+          <button className="bg-white text-black px-4 py-2 text-xs font-orbitron font-bold tracking-wider hover-lift flex-1">
+            LIVE DEMO
+          </button>
+          <button className="border border-white text-white px-4 py-2 text-xs font-orbitron font-bold tracking-wider hover-lift flex-1">
+            CODE
+          </button>
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-5">
         <div className="flex justify-between items-start">
-          <h3 className="font-orbitron font-medium text-xl text-white group-hover:text-accent transition-colors duration-300 tracking-wide">
+          <h3 className="font-orbitron font-bold text-2xl text-white group-hover:text-accent transition-all duration-500 tracking-wide gradient-text">
             {project.title}
           </h3>
-          <div className="text-xs text-gray-500 font-orbitron tracking-wider">
+          <div className="text-lg text-accent/60 font-orbitron tracking-wider animate-float">
             0{index + 1}
           </div>
         </div>
 
-        <p className="text-body text-gray-400 leading-relaxed font-cinzel">
+        <p className="text-lg text-gray-300 leading-relaxed font-cinzel group-hover:text-white transition-colors duration-300">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
+        <div className="flex flex-wrap gap-3">
+          {project.technologies.map((tech, techIndex) => (
             <span
               key={tech}
-              className="text-xs text-gray-500 border border-gray-800 px-2 py-1 transition-colors duration-300 hover:text-accent hover:border-accent"
+              className={`text-sm text-gray-400 border border-gray-700 px-4 py-2 transition-all duration-300 hover:text-accent hover:border-accent hover:bg-accent/10 hover-scale font-orbitron tracking-wider animate-fade-in-scale delay-${techIndex * 100}`}
             >
               {tech}
             </span>

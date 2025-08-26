@@ -13,26 +13,28 @@ const SkillCategory = ({ category, items, delay }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);
-    }, delay * 100);
+    }, delay * 150);
     return () => clearTimeout(timer);
   }, [delay]);
 
   return (
-    <div className={`space-y-3 scroll-reveal animate-fadeInUp stagger-delay`}>
-      <h4 className="font-orbitron text-sm font-medium text-accent tracking-wider uppercase">
+    <div className={`space-y-4 scroll-reveal animate-stagger-in hover-scale hover-glow bg-black/20 backdrop-blur-sm border border-white/10 p-6 relative overflow-hidden`}>
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent"></div>
+      <h4 className="font-orbitron text-lg font-bold text-accent tracking-wider uppercase animate-shimmer relative z-10">
         {category}
       </h4>
-      <div className="space-y-2">
+      <div className="space-y-3 relative z-10">
         {items.map((skill, i) => (
           <div
             key={skill}
-            className="text-gray-400 text-body transition-colors duration-300 hover:text-white"
+            className="text-gray-300 text-lg font-cinzel transition-all duration-500 hover:text-accent hover:translate-x-2 cursor-pointer magnetic"
             style={{
               opacity: visible ? 1 : 0,
-              transition: `opacity 0.3s ease ${i * 0.05}s`,
+              transform: visible ? 'translateX(0)' : 'translateX(-20px)',
+              transition: `all 0.5s ease ${i * 0.1}s`,
             }}
           >
-            {skill}
+            → {skill}
           </div>
         ))}
       </div>
@@ -48,23 +50,23 @@ export default function About() {
         {/* Left side - About content */}
         <div className="lg:col-span-7 space-y-8">
           <div className="space-y-6">
-            <h2 className="text-section-title scroll-reveal animate-slideInLeft">
-              <span className="text-white">ABOUT</span>
-              <div className="text-accent -mt-2">ME</div>
+            <h2 className="text-section-title scroll-reveal animate-slide-in-left">
+              <span className="text-white">CHI</span>
+              <div className="text-accent -mt-2 gradient-text">SONO</div>
             </h2>
             
-            <div className="text-large text-gray-400 space-y-6 font-cinzel">
-              <p className="scroll-reveal animate-fadeInUp animate-delay-100">
-                I'm a computer science student and growing web developer, passionate about creating modern, 
-                intuitive applications that solve real-world problems.
+            <div className="text-xl text-gray-300 space-y-6 font-cinzel leading-relaxed">
+              <p className="scroll-reveal animate-slide-in-up delay-100 hover:text-white transition-colors duration-300">
+                Sono uno studente di informatica e sviluppatore web in crescita, appassionato nel creare 
+                applicazioni moderne e intuitive che risolvono problemi reali.
               </p>
-              <p className="scroll-reveal animate-fadeInUp animate-delay-200">
-                My focus is on <span className="text-accent">React</span>, <span className="text-accent">Node.js</span>, 
-                and database technologies, always striving to write clean, maintainable code that stands the test of time.
+              <p className="scroll-reveal animate-slide-in-up delay-200 hover:text-white transition-colors duration-300">
+                Il mio focus è su <span className="text-accent font-bold gradient-text">React</span>, <span className="text-accent font-bold gradient-text">Node.js</span>, 
+                e tecnologie database, sempre alla ricerca di scrivere codice pulito e mantenibile.
               </p>
-              <p className="scroll-reveal animate-fadeInUp animate-delay-300">
-                When I'm not coding, I love exploring new technologies, contributing to open source projects, 
-                and staying current with industry trends and best practices.
+              <p className="scroll-reveal animate-slide-in-up delay-300 hover:text-white transition-colors duration-300">
+                Quando non programmo, amo esplorare nuove tecnologie, contribuire a progetti open source, 
+                e rimanere aggiornato con le tendenze e best practices del settore.
               </p>
             </div>
           </div>
