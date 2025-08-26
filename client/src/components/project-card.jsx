@@ -13,7 +13,7 @@ const ProjectCard = ({ project, index }) => {
       }}
     >
       {/* Card principale */}
-      <div className="relative bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-sm border border-white/20 overflow-hidden hover-lift hover-glow transition-all duration-700 hover:border-accent/50">
+      <div className="relative bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-sm border border-white/20 overflow-hidden hover-lift hover-glow transition-all duration-700 hover:border-accent/50 w-full max-w-none">
         
         {/* Header con immagine */}
         <div className="relative h-64 overflow-hidden">

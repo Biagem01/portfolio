@@ -50,7 +50,7 @@ const projects = [
 export default function Projects() {
   return (
     <div id="projects" className="section-content">
-      <div className="space-y-20 min-h-screen flex flex-col justify-center py-20">
+      <div className="space-y-20 min-h-screen py-32">
         
         {/* Header con animazioni dinamiche */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
@@ -69,10 +69,12 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid con staggered animations */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {projects.map((project, index) => (
-            <ProjectCard key={`project-${index}`} project={project} index={index} />
-          ))}
+        <div className="w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-none">
+            {projects.map((project, index) => (
+              <ProjectCard key={`project-${index}`} project={project} index={index} />
+            ))}
+          </div>
         </div>
 
         {/* View All con animazione */}

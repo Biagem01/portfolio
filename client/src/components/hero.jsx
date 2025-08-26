@@ -41,7 +41,7 @@ export default function Hero() {
           <div className="flex gap-6 items-center scroll-reveal animate-stagger-in delay-500">
             <button
               onClick={() => scrollToSection("projects")}
-              className="bg-accent text-black px-10 py-4 font-orbitron font-black text-base tracking-wider uppercase hover:bg-white hover:scale-110 transition-all duration-500 hover-lift hover-glow magnetic animate-shimmer relative overflow-hidden border-2 border-transparent hover:border-white"
+              className="bg-green-500 text-black px-10 py-4 font-orbitron font-black text-base tracking-wider uppercase hover:bg-green-400 hover:scale-110 transition-all duration-500 hover-lift hover-glow magnetic animate-shimmer relative overflow-hidden border-2 border-green-500 hover:border-green-400"
             >
               <span className="relative z-10">ESPLORA LAVORI</span>
             </button>

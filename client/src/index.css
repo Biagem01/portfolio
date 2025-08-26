@@ -455,6 +455,26 @@
   background-clip: text;
 }
 
+/* Projects section layout fix */
+#projects .section-content {
+  max-width: none !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+@media (min-width: 1024px) {
+  #projects .section-content {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+  
+  #projects .grid {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 1400px !important;
+  }
+}
+
 /* Enhanced glitch effect */
 .glitch-text {
   position: relative;
