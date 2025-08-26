@@ -1,3 +1,5 @@
+import ProjectCard from './project-card';
+
 const projects = [
   {
     title: "EconoFlow",
@@ -44,93 +46,6 @@ const projects = [
     category: "Frontend"
   }
 ];
-
-const ProjectCard = ({ project, index }) => {
-  const isEven = index % 2 === 0;
-  
-  return (
-    <div 
-      className="group scroll-reveal opacity-0 relative"
-      data-animation={isEven ? 'animate-bounce-in-left' : 'animate-bounce-in-right'}
-      data-testid={`project-card-${index + 1}`}
-      style={{ 
-        animationDelay: `${index * 0.2}s`,
-        animationFillMode: 'forwards',
-        willChange: 'transform, opacity'
-      }}
-    >
-      <div className="relative overflow-hidden bg-gray-900/50 backdrop-blur-sm border-2 border-white/20 hover-glow hover-scale transition-all duration-700">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-96 object-cover transition-all duration-1000 group-hover:scale-125 group-hover:rotate-2"
-        />
-        {/* Gradient overlay più dinamico */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent group-hover:from-accent/20"></div>
-        
-        {/* Effetto shimmer più visibile */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-out"></div>
-        
-        {/* Year badge con animazione */}
-        <div className="absolute top-6 right-6 bg-accent text-black px-4 py-2 text-sm font-orbitron font-black tracking-wider animate-bounce-in-up hover-scale cursor-pointer">
-          {project.year}
-        </div>
-        
-        {/* Project links più dinamici */}
-        <div className="absolute bottom-6 left-6 right-6 flex gap-4 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-6 group-hover:translate-y-0">
-          <button className="bg-accent text-black px-6 py-3 text-sm font-orbitron font-black tracking-wider hover-lift hover-scale flex-1 magnetic animate-shimmer">
-            DEMO LIVE
-          </button>
-          <button className="border-2 border-accent text-accent px-6 py-3 text-sm font-orbitron font-black tracking-wider hover-lift hover-scale flex-1 magnetic">
-            CODICE
-          </button>
-        </div>
-      </div>
-
-      <div className="space-y-6">
-        <div className="flex justify-between items-start">
-          <h3 className="font-orbitron font-black text-3xl text-white group-hover:text-accent transition-all duration-700 tracking-wide hover:scale-105 cursor-pointer">
-            {project.title}
-          </h3>
-          <div className="text-2xl text-accent font-orbitron tracking-wider animate-elastic-in bg-black/40 backdrop-blur-sm px-4 py-2 border border-accent/30">
-            0{index + 1}
-          </div>
-        </div>
-
-        <p className="text-xl text-gray-200 leading-relaxed font-cinzel group-hover:text-white transition-all duration-500 hover:scale-105">
-          {project.description}
-        </p>
-
-        <div className="flex flex-wrap gap-4">
-          {project.technologies.map((tech, techIndex) => (
-            <span
-              key={tech}
-              className="text-base text-gray-300 border-2 border-gray-600 px-5 py-3 transition-all duration-500 hover:text-accent hover:border-accent hover:bg-accent/20 hover-scale hover-glow font-orbitron tracking-wider magnetic animate-bounce-in-up cursor-pointer"
-              style={{ animationDelay: `${(index * 0.2) + (techIndex * 0.1)}s` }}
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex gap-4 pt-2">
-          <a
-            href={project.demoLink}
-            className="text-accent text-sm font-orbitron tracking-wider uppercase hover:text-white transition-colors duration-300"
-          >
-            Live Demo →
-          </a>
-          <a
-            href={project.githubLink}
-            className="text-white/60 text-sm font-orbitron tracking-wider uppercase hover:text-white transition-colors duration-300"
-          >
-            Code →
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default function Projects() {
   return (

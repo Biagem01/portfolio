@@ -9,27 +9,25 @@ export const useScrollAnimations = () => {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        const element = entry.target;
+        
         if (entry.isIntersecting) {
-          const element = entry.target;
-          
-          console.log('🎬 Animazione attivata per:', element.className);
-          
           // Remove opacity-0 and trigger animation
-          element.classList.remove('opacity-0');
+          element.classList.remove('opacity-0', 'animate-out');
           element.classList.add('animate');
           
           // Add specific animation class based on data attribute
           const animationType = element.dataset.animation;
           if (animationType) {
-            console.log('🎯 Tipo animazione:', animationType);
             element.classList.add(animationType);
-            // Force the animation to show
             element.style.opacity = '1';
             element.style.animationFillMode = 'forwards';
           }
-          
-          // Stop observing once animated
-          observer.unobserve(element);
+        } else {
+          // Reset when out of view
+          element.classList.remove('animate', 'animate-bounce-in-left', 'animate-bounce-in-right', 'animate-bounce-in-up', 'animate-elastic-in', 'animate-flip-in', 'animate-slide-in-left', 'animate-slide-in-right', 'animate-slide-in-up', 'animate-stagger-in');
+          element.classList.add('opacity-0', 'animate-out');
+          element.style.opacity = '0';
         }
       });
     }, observerOptions);
