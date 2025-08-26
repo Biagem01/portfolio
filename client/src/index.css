@@ -408,9 +408,9 @@
 .project-delay-3 { animation-delay: 0.6s; }
 .project-delay-4 { animation-delay: 0.8s; }
 
-/* Initial hidden state for animations */
+/* Initial hidden state for animations - meno aggressivo */
 .scroll-reveal {
-  opacity: 0;
+  opacity: 1;
   will-change: transform, opacity;
 }
 
@@ -462,9 +462,9 @@
   background-clip: text;
 }
 
-/* Projects section layout fix */
+/* Projects section layout ottimizzato */
 #projects .section-content {
-  max-width: none !important;
+  max-width: 1200px !important;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
 }
@@ -473,12 +473,6 @@
   #projects .section-content {
     padding-left: 4rem !important;
     padding-right: 4rem !important;
-  }
-  
-  #projects .grid {
-    padding: 0 !important;
-    margin: 0 auto !important;
-    max-width: 1400px !important;
   }
 }
 

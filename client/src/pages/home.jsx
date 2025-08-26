@@ -18,7 +18,7 @@ export default function Home() {
         <Navbar />
       </div>
 
-      {/* Sezioni principali - layout ottimizzato */}
+      {/* Sezioni principali - spacing ottimizzato */}
       <main>
         {/* Hero */}
         <section id="home" className="min-h-screen flex items-center">
@@ -26,17 +26,17 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-16">
+        <section id="about" className="py-8">
           <About />
         </section>
 
         {/* Projects */}
-        <section id="projects" className="py-16">
+        <section id="projects" className="py-8">
           <Projects />
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-16">
+        <section id="contact" className="py-8">
           <Contact />
         </section>
       </main>

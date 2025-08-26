@@ -50,7 +50,7 @@ const projects = [
 export default function Projects() {
   return (
     <div id="projects" className="section-content">
-      <div className="space-y-16 py-16">
+      <div className="space-y-12 py-8">
         
         {/* Header ottimizzato */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
@@ -77,8 +77,8 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Esplora lavori - bottone prominente */}
-        <div className="text-center scroll-reveal animate-elastic-in delay-800">
+        {/* Esplora lavori - bottone prominente e visibile */}
+        <div className="flex justify-center mt-12 mb-8">
           <button
             onClick={() => {
               const element = document.getElementById('contact');
@@ -86,12 +86,10 @@ export default function Projects() {
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            className="inline-flex items-center bg-accent text-black px-12 py-5 text-xl font-orbitron font-black tracking-wider uppercase hover:bg-accent/90 hover:scale-110 transition-all duration-500 gap-6 group hover-lift hover-glow magnetic animate-shimmer relative overflow-hidden border-2 border-accent"
+            className="bg-accent text-black px-8 py-4 text-lg font-orbitron font-black tracking-wider uppercase hover:bg-accent/90 hover:scale-105 transition-all duration-300 relative z-20"
             data-testid="button-explore-works"
           >
-            <span className="relative z-10">ESPLORA LAVORI</span>
-            <span className="group-hover:translate-x-2 group-hover:scale-110 transition-all duration-500 text-2xl relative z-10">→</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            ESPLORA LAVORI
           </button>
         </div>
       </div>

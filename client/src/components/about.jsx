@@ -43,7 +43,7 @@ const SkillCategory = ({ category, items, delay }) => {
 export default function About() {
   return (
     <div id="about" className="section-content">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-8">
 
         {/* Left side - About text */}
         <div className="lg:col-span-7 space-y-8">

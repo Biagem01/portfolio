@@ -3,8 +3,7 @@ const ProjectCard = ({ project, index }) => {
   
   return (
     <div 
-      className="group scroll-reveal opacity-0 relative"
-      data-animation={isEven ? 'animate-bounce-in-left' : 'animate-bounce-in-right'}
+      className="group relative"
       data-testid={`project-card-${index + 1}`}
       style={{ 
         animationDelay: `${index * 0.2}s`,
