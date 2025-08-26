@@ -11,26 +11,24 @@ const SkillCategory = ({ category, items, delay }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, delay * 150);
+    const timer = setTimeout(() => setVisible(true), delay * 150);
     return () => clearTimeout(timer);
   }, [delay]);
 
   return (
-    <div className={`space-y-4 scroll-reveal animate-stagger-in hover-scale hover-glow bg-black/20 backdrop-blur-sm border border-white/10 p-6 relative overflow-hidden`}>
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent"></div>
-      <h4 className="font-orbitron text-lg font-bold text-accent tracking-wider uppercase animate-shimmer relative z-10">
+    <div className="relative overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10 p-6 rounded-xl group hover-scale hover-glow scroll-reveal animate-stagger-in">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent z-0"></div>
+      <h4 className="font-orbitron text-lg font-bold text-accent tracking-wider uppercase relative z-10 animate-shimmer">
         {category}
       </h4>
-      <div className="space-y-3 relative z-10">
+      <div className="space-y-2 mt-4 relative z-10">
         {items.map((skill, i) => (
           <div
             key={skill}
             className="text-gray-300 text-lg font-cinzel transition-all duration-500 hover:text-accent hover:translate-x-2 cursor-pointer magnetic"
             style={{
               opacity: visible ? 1 : 0,
-              transform: visible ? 'translateX(0)' : 'translateX(-20px)',
+              transform: visible ? "translateX(0)" : "translateX(-20px)",
               transition: `all 0.5s ease ${i * 0.1}s`,
             }}
           >
@@ -45,16 +43,16 @@ const SkillCategory = ({ category, items, delay }) => {
 export default function About() {
   return (
     <div id="about" className="section-content">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center min-h-[80vh]">
-        
-        {/* Left side - About content */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center min-h-screen">
+
+        {/* Left side - About text */}
         <div className="lg:col-span-7 space-y-8">
           <div className="space-y-6">
             <h2 className="text-section-title scroll-reveal animate-slide-in-left">
               <span className="text-white">CHI</span>
               <div className="text-accent -mt-2 gradient-text">SONO</div>
             </h2>
-            
+
             <div className="text-xl text-gray-300 space-y-6 font-cinzel leading-relaxed">
               <p className="scroll-reveal animate-slide-in-up delay-100 hover:text-white transition-colors duration-300">
                 Sono uno studente di informatica e sviluppatore web in crescita, appassionato nel creare 
@@ -74,23 +72,24 @@ export default function About() {
 
         {/* Right side - Skills */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="scroll-reveal animate-slideInRight animate-delay-200">
-            <h3 className="text-large font-orbitron font-medium text-white tracking-wider uppercase mb-8">
+          <div className="scroll-reveal animate-slide-in-right delay-200">
+            <h3 className="text-2xl font-orbitron font-medium text-white tracking-wider uppercase mb-8">
               Technical Skills
             </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {Object.entries(skills).map(([category, items], idx) => (
-                <SkillCategory 
-                  key={category} 
-                  category={category} 
-                  items={items} 
-                  delay={idx + 3} 
+                <SkillCategory
+                  key={category}
+                  category={category}
+                  items={items}
+                  delay={idx + 3}
                 />
               ))}
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
