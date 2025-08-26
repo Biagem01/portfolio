@@ -414,6 +414,12 @@
   will-change: transform, opacity;
 }
 
+/* Fallback visibility for About section */
+#about .scroll-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* Force visibility when animated */
 .scroll-reveal.animate-bounce-in-left,
 .scroll-reveal.animate-bounce-in-right,
