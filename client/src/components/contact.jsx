@@ -50,7 +50,7 @@ export default function Contact() {
             <div className="scroll-reveal animate-slide-in-up mb-4">
               <span className="font-orbitron text-sm text-accent tracking-[0.3em] uppercase">Get In Touch</span>
             </div>
-            <h2 className="text-section-title scroll-reveal animate-slide-in-left delay-200">
+            <h2 className="text-section-title scroll-reveal animate-slide-in-left animate-delay-200">
               <span className="text-white glitch-text" data-text="LET'S">LET'S</span>
               <div className="text-accent -mt-2 gradient-text animate-shimmer">CONNECT</div>
             </h2>
