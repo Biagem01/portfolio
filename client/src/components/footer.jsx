@@ -18,8 +18,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative py-12 border-t border-white/10">
-      <div className="container mx-auto px-6">
+    <footer className="relative py-8 border-t border-white/10">
+      <div className="section-content">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           
           {/* Brand Section */}

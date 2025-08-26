@@ -42,7 +42,7 @@ export default function Contact() {
 
   return (
     <div id="contact" className="section-content">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center min-h-[80vh]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16">
         
         {/* Left side - Contact info */}
         <div className="lg:col-span-6 space-y-12">

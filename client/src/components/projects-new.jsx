@@ -50,9 +50,9 @@ const projects = [
 export default function Projects() {
   return (
     <div id="projects" className="section-content">
-      <div className="space-y-20 min-h-screen py-32">
+      <div className="space-y-16 py-16">
         
-        {/* Header con animazioni dinamiche */}
+        {/* Header ottimizzato */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-8">
             <h2 className="text-section-title scroll-reveal animate-bounce-in-left">
@@ -62,30 +62,37 @@ export default function Projects() {
           </div>
           
           <div className="lg:col-span-4 scroll-reveal animate-bounce-in-right delay-200">
-            <p className="text-2xl text-white/90 font-cinzel leading-relaxed hover:text-white transition-colors duration-500">
+            <p className="text-xl text-white/90 font-cinzel leading-relaxed hover:text-white transition-colors duration-500">
               Una vetrina di progetti che dimostrano le mie competenze tecniche e la passione per creare esperienze digitali eccezionali.
             </p>
           </div>
         </div>
 
-        {/* Projects Grid con staggered animations */}
+        {/* Projects Grid ottimizzato */}
         <div className="w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-none">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-none">
             {projects.map((project, index) => (
               <ProjectCard key={`project-${index}`} project={project} index={index} />
             ))}
           </div>
         </div>
 
-        {/* View All con animazione */}
+        {/* Esplora lavori - bottone prominente */}
         <div className="text-center scroll-reveal animate-elastic-in delay-800">
-          <a
-            href="/projects"
-            className="inline-flex items-center bg-accent/10 backdrop-blur-sm border-2 border-accent text-accent px-8 py-4 text-lg font-orbitron font-black tracking-wider uppercase hover:bg-accent hover:text-black transition-all duration-500 gap-6 group hover-lift hover-scale magnetic"
+          <button
+            onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="inline-flex items-center bg-accent text-black px-12 py-5 text-xl font-orbitron font-black tracking-wider uppercase hover:bg-accent/90 hover:scale-110 transition-all duration-500 gap-6 group hover-lift hover-glow magnetic animate-shimmer relative overflow-hidden border-2 border-accent"
+            data-testid="button-explore-works"
           >
-            <span>ESPLORA ARCHIVIO</span>
-            <span className="group-hover:translate-x-2 group-hover:scale-110 transition-all duration-500 text-2xl">→</span>
-          </a>
+            <span className="relative z-10">ESPLORA LAVORI</span>
+            <span className="group-hover:translate-x-2 group-hover:scale-110 transition-all duration-500 text-2xl relative z-10">→</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          </button>
         </div>
       </div>
     </div>

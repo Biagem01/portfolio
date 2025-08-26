@@ -574,12 +574,24 @@ textarea:focus {
 
   /* Clean layout - no conflicts */
 
-  /* Ensure proper spacing */
+  /* Spacing ottimizzato */
   .section-content {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .section-content {
+      padding: 0 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-content {
+      padding: 0 4rem;
+    }
   }
 
   /* Typography system - Orbitron + Cinzel */

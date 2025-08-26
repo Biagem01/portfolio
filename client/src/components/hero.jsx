@@ -11,7 +11,7 @@ export default function Hero() {
 
   return (
     <div id="home" className="section-content">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[85vh] py-8">
         
         {/* Left side - Main content */}
         <div className="lg:col-span-8 space-y-8">

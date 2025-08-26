@@ -8,6 +8,17 @@ This is a full-stack portfolio website for a developer named Alex Johnson. The a
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (August 26, 2025)
+
+- Migrated project from Replit Agent to Replit environment  
+- Optimized layout and removed excessive spacing between sections
+- Added missing section titles with proper typography
+- Fixed "Esplora lavori" button visibility in projects section
+- Removed duplicate and unused files (projects.jsx, loading-screen.jsx, theme components, etc.)
+- Resolved all style conflicts and improved overall performance
+- Unified spacing system using section-content class with responsive padding
+- Optimized component structure for better maintainability
+
 ## System Architecture
 
 ### Frontend Architecture

@@ -12,11 +12,11 @@ const ProjectCard = ({ project, index }) => {
         willChange: 'transform, opacity'
       }}
     >
-      {/* Card principale */}
+      {/* Card principale ottimizzata */}
       <div className="relative bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-sm border border-white/20 overflow-hidden hover-lift hover-glow transition-all duration-700 hover:border-accent/50 w-full max-w-none">
         
         {/* Header con immagine */}
-        <div className="relative h-64 overflow-hidden">
+        <div className="relative h-56 overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
@@ -44,7 +44,7 @@ const ProjectCard = ({ project, index }) => {
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-6">
+        <div className="p-6 space-y-4">
           {/* Title e numero */}
           <div className="flex items-start justify-between">
             <h3 className="font-orbitron font-bold text-2xl text-white group-hover:text-accent transition-colors duration-500 leading-tight max-w-[75%]">

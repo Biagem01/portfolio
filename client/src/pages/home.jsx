@@ -4,7 +4,6 @@ import About from "@/components/about.jsx";
 import Projects from "@/components/projects-new.jsx";
 import Contact from "@/components/contact.jsx";
 import Footer from "@/components/footer.jsx";
-// import LoadingScreen from "@/components/loading-screen.jsx"; // Disabled - causing conflicts
 import { useScrollReveal } from "../hooks/use-scroll-reveal.js";
 import { useScrollAnimations } from "../hooks/use-scroll-animations.js";
 
@@ -13,43 +12,37 @@ export default function Home() {
   useScrollAnimations();
 
   return (
-    <>
-      {/* <LoadingScreen /> - Disabled to prevent overlay conflicts */}
-
-      <div className="relative bg-background" style={{ cursor: 'default' }}>
-        {/* Navbar */}
-        <div className="relative z-20">
-          <Navbar />
-        </div>
-
-        {/* Sezioni principali - simplified layout */}
-        <main>
-
-          {/* Hero */}
-          <section id="home" className="min-h-screen flex items-center py-8">
-            <Hero />
-          </section>
-
-          {/* About */}
-          <section id="about" className="py-12">
-            <About />
-          </section>
-
-          {/* Projects */}
-          <section id="projects" className="py-12">
-            <Projects />
-          </section>
-
-          {/* Contact */}
-          <section id="contact" className="py-12">
-            <Contact />
-          </section>
-
-        </main>
-
-        {/* Footer */}
-        <Footer />
+    <div className="relative bg-background" style={{ cursor: 'default' }}>
+      {/* Navbar */}
+      <div className="relative z-20">
+        <Navbar />
       </div>
-    </>
+
+      {/* Sezioni principali - layout ottimizzato */}
+      <main>
+        {/* Hero */}
+        <section id="home" className="min-h-screen flex items-center">
+          <Hero />
+        </section>
+
+        {/* About */}
+        <section id="about" className="py-16">
+          <About />
+        </section>
+
+        {/* Projects */}
+        <section id="projects" className="py-16">
+          <Projects />
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="py-16">
+          <Contact />
+        </section>
+      </main>
+
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 }
