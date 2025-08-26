@@ -26,22 +26,22 @@ export default function Home() {
         <main>
 
           {/* Hero */}
-          <section id="home" className="py-20">
+          <section id="home" className="min-h-screen flex items-center py-8">
             <Hero />
           </section>
 
           {/* About */}
-          <section id="about" className="py-20">
+          <section id="about" className="py-12">
             <About />
           </section>
 
           {/* Projects */}
-          <section id="projects" className="py-20">
+          <section id="projects" className="py-12">
             <Projects />
           </section>
 
           {/* Contact */}
-          <section id="contact" className="py-20">
+          <section id="contact" className="py-12">
             <Contact />
           </section>
 

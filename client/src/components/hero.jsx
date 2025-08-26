@@ -2,13 +2,10 @@ export default function Hero() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const sectionContainer = element.closest('.scroll-section');
-      if (sectionContainer) {
-        sectionContainer.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
@@ -19,26 +16,26 @@ export default function Hero() {
         {/* Left side - Main content */}
         <div className="lg:col-span-8 space-y-8">
           <div className="space-y-6">
-            <div className="text-hero-sub text-accent scroll-reveal animate-slide-in-left delay-100">
+            <div className="text-hero-sub text-accent">
               CREATIVE DEVELOPER
             </div>
             
             <h1 className="text-hero relative">
-              <div className="text-white scroll-reveal animate-slide-in-up delay-200 glitch-text" data-text="BIAGIO">
+              <div className="text-white glitch-text" data-text="BIAGIO">
                 BIAGIO
               </div>
-              <div className="text-accent -mt-4 scroll-reveal animate-slide-in-right delay-300 gradient-text">
+              <div className="text-accent -mt-4 gradient-text">
                 CUBISINO
               </div>
             </h1>
             
-            <p className="text-large text-gray-300 max-w-2xl scroll-reveal animate-fade-in-scale delay-400 leading-relaxed">
+            <p className="text-large text-gray-300 max-w-2xl leading-relaxed">
               Trasformo idee creative in esperienze digitali straordinarie. Specializzato nella creazione di 
               applicazioni web moderne e coinvolgenti.
             </p>
           </div>
 
-          <div className="flex gap-6 items-center scroll-reveal animate-stagger-in delay-500">
+          <div className="flex gap-6 items-center">
             <button
               onClick={() => scrollToSection("projects")}
               className="bg-green-500 text-black px-10 py-4 font-orbitron font-black text-base tracking-wider uppercase hover:bg-green-400 hover:scale-110 transition-all duration-500 hover-lift hover-glow magnetic animate-shimmer relative overflow-hidden border-2 border-green-500 hover:border-green-400"
@@ -58,7 +55,7 @@ export default function Hero() {
 
         {/* Right side - Contact info */}
         <div className="lg:col-span-4 space-y-8">
-          <div className="border-2 border-white/30 p-8 space-y-6 scroll-reveal animate-rotate-in delay-600 hover-scale hover-glow bg-black/20 backdrop-blur-sm relative overflow-hidden">
+          <div className="border-2 border-white/30 p-8 space-y-6 hover-scale hover-glow bg-black/20 backdrop-blur-sm relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent"></div>
             
             <div className="text-center relative z-10">
@@ -105,7 +102,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-reveal animate-fadeInUp animate-delay-600">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <div 
           className="flex items-center space-x-3 text-white/40 hover:text-accent transition-all duration-300 cursor-pointer group animate-pulse"
           onClick={() => scrollToSection("about")}
